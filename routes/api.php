@@ -31,6 +31,7 @@ Route::middleware([Sanctum::class])->group(function () {
     Route::post('nextstage/{id}',[EntryController::class,'nextstage']);
 
     Route::get('dashboard',[DashboardController::class,'dashboard']);
+    Route::get('dashboarddisponibilidade',[DashboardController::class,'dashboarddisponibilidade']);
     Route::get('movements',[EntryController::class,'movements']);
 
 

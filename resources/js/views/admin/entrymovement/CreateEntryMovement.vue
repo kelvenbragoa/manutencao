@@ -10,6 +10,8 @@ import * as yup from "yup";
 import axios from "axios";
 import { format, parse, parseISO, isValid } from "date-fns";
 import { useToast } from "vue-toastification";
+import Multiselect from '@vueform/multiselect'
+import '@vueform/multiselect/themes/default.css'
 
 const router = useRouter();
 const toast = useToast();
@@ -246,11 +248,21 @@ onMounted(() => {
                 <div class="form-row">
                     <div class="form-group col-md-12">
                     <label for="equipment_id">Equipamentos</label>
-                    <select type="text" id="equipment_id" class="form-control" v-model="equipment_id">
+                    <Multiselect
+                        v-model="equipment_id"
+                        :options="equipments"
+                        value-prop="id"
+                        label="name"
+                        track-by="name"
+                        placeholder="Selecione o equipamento"
+                        :searchable="true"
+                        :can-clear="true"
+                    />
+                    <!-- <select type="text" id="equipment_id" class="form-control" v-model="equipment_id">
                         <option v-for="equipment in equipments" :key="equipment.id" :value="equipment.id" >
                             {{ equipment.name }} - {{ equipment.plate_number }}
                         </option>
-                    </select>
+                    </select> -->
                   </div>
                 </div>
                 <div class="form-row">

@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EquipmentMovementStatusFleetTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(EquipmentTableSeeder::class);
+
     }
 }

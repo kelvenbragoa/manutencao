@@ -153,13 +153,13 @@ onMounted(() => {
                             </h2>
                         </div>
                         <div class="col-auto">
-                            <router-link
+                            <!-- <router-link
                                 class="btn btn-primary"
                                 to="/admin/exitmovement/create"
                             >
                                 <span class="fe fe-filter fe-12 mr-2"></span
                                 >Criar
-                            </router-link>
+                            </router-link> -->
                         </div>
                     </div>
                     <!-- table -->

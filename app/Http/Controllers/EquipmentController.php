@@ -47,6 +47,8 @@ class EquipmentController extends Controller
     {
         //
         $data = $request->all();
+
+        // dd($data);
         // $request->validate([
         //     'name'=>'required|string',
         //     'email'=>'required|string|email|unique:users',

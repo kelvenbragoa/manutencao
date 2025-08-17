@@ -25,7 +25,25 @@ const displayConfirmation = ref(false);
 const menu = ref();
 
 const authorizedin = ref([]);
-const authorizedout = ref([]);
+const fleet = ref([]);
+const oficina = ref([]);
+const manutencao = ref([]);
+const aguardaaprovacao = ref([]);
+
+const nextstage = (id) => {
+
+    axios
+        .post(`/api/nextstage/${id}`)
+        .then(() => {
+            getData();
+            toast.success("Sucesso");
+        })
+        .catch((error) => {
+            toast.error(`${error}`);
+        })
+        .finally(() => {
+        });
+};
 
 const toggle = (event, id) => {
     dataIdBeingDeleted.value = id;
@@ -48,14 +66,14 @@ const confirmDeletion = (id) => {
 
 const getData = async (page = 1) => {
     axios
-        .get(`/api/dashboard`, {
+        .get(`/api/dashboarddisponibilidade`, {
             params: {
                 query: searchQuery.value,
             },
         })
         .then((response) => {
-            authorizedout.value = response.data.out;
-            authorizedin.value = response.data.in;
+            fleet.value = response.data.fleet;
+            
             isLoadingDiv.value = false;
             console.log(retriviedData.value)
         })
@@ -152,29 +170,68 @@ onUnmounted(() => {
 
                 <div class="row">
                     <!-- Coluna Entrada -->
-                    <div class="col-md-6">
-                        <h4 class="mb-3" style="color: green">
-                            Viaturas Autorizadas - Entrada
+                    <div class="col-md-2">
+                        <h4 class="mb-3">
+                            Aguarda Aprovação
+                        </h4>
+                        <div class="card shadow mb-3" v-for="item in aguardaaprovacao">
+                            <div class="card-body">
+                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
+                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4 class="mb-3">
+                            Aguardando Entrada
                         </h4>
                         <div class="card shadow mb-3" v-for="item in authorizedin">
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4 class="mb-3">
+                            Na Oficina
+                        </h4>
+                        <div class="card shadow mb-3" v-for="item in oficina">
+                            <div class="card-body">
+                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
+                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4 class="mb-3">
+                            Em Manutenção
+                        </h4>
+                        <div class="card shadow mb-3" v-for="item in manutencao">
+                            <div class="card-body">
+                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
+                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
                             </div>
                         </div>
                     </div>
 
                     <!-- Coluna Saída -->
-                    <div class="col-md-6">
-                        <h4 class="mb-3" style="color: red">
-                            Viaturas Autorizadas - Saída
+                    <div class="col-md-2">
+                        <h4 class="mb-3">
+                            Manutenção Concluída
                         </h4>
-                        <div class="card shadow mb-3" v-for="item in authorizedout">
+                        <div class="card shadow mb-3" v-for="item in fleet">
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
                             </div>
                         </div>
                     </div>

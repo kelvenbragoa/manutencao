@@ -10,6 +10,10 @@ import * as yup from "yup";
 import axios from "axios";
 import { format, parse, parseISO, isValid } from "date-fns";
 import { useToast } from "vue-toastification";
+// import VueMultiselect from 'vue-multiselect'
+// import 'vue-multiselect/dist/vue-multiselect.css'
+import Multiselect from '@vueform/multiselect'
+import '@vueform/multiselect/themes/default.css'
 
 const router = useRouter();
 const toast = useToast();
@@ -44,7 +48,7 @@ const schema = yup.object({
     name: yup.string().required().trim().label("Name"),
     plate_number: yup.string().required().trim().label("Email"),
     model: yup.string().required().trim().label("Duration"),
-    equipment_fleet_id: yup.string().required().trim().label("Duration"),
+    // equipment_fleet_id: yup.string().required().label("Duration"),
 
 });
 const { defineField, handleSubmit, resetForm, errors, setErrors } = useForm({
@@ -121,7 +125,7 @@ const onSubmit = handleSubmit((values) => {
         values.video = video.value;
     }
 
-    values.birthdate = formatToYYYYMMDD(values.birthdate);
+    // values.birthdate = formatToYYYYMMDD(values.birthdate);
 
     isLoadingButton.value = true;
     axios
@@ -254,11 +258,31 @@ onMounted(() => {
                   </div>
                   <div class="form-group col-md-6">
                     <label for="lastname">Frota</label>
-                    <select type="text" id="lastname" class="form-control" v-model="equipment_fleet_id">
+                    <Multiselect
+    v-model="equipment_fleet_id"
+    :options="fleets"
+    value-prop="id"
+    label="name"
+    track-by="name"
+    placeholder="Selecione a frota"
+    :searchable="true"
+    :can-clear="true"
+  />
+                    <!-- <VueMultiselect
+                        v-model="equipment_fleet_id"
+                        :options="fleets"
+                        :reduce="f => f.id"
+                        label="name"
+                        track-by="id"
+                        placeholder="Selecione a frota"
+                    />
+                    <pre>Selecionado: {{ equipment_fleet_id?.name }}</pre>
+                    -->
+                    <!-- <select type="text" id="lastname" class="form-control" v-model="equipment_fleet_id">
                         <option v-for="fleet in fleets" :key="fleet.id" :value="fleet.id" >
                             {{ fleet.name }}
                         </option>
-                    </select>
+                    </select> -->
                   </div>
                 </div>
                 <div class="form-row">

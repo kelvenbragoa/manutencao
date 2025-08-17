@@ -12,4 +12,8 @@ class Equipment extends Model
     public function fleet(){
         return $this->hasOne(EquipmentFleet::class, 'id', 'equipment_fleet_id');
     }
+
+    public function lastmovement(){
+        return $this->hasOne(EquipmentMovement::class, 'id', 'equipment_movement_id')->orderBy('id', 'desc');
+    }
 }

@@ -8,6 +8,8 @@ import { debounce } from "lodash-es";
 
 import moment from "moment";
 import { useToast } from "vue-toastification";
+import PaginationSimple from './../../components/PaginationSimple.vue' // ou PaginationSimple
+
 
 const router = useRouter();
 const toast = useToast();
@@ -22,7 +24,17 @@ const rowsPerPage = ref(15);
 const totalRecords = ref(0);
 const displayConfirmation = ref(false);
 const menu = ref();
-
+const paginator = ref({
+  data: [],
+  links: [],
+  current_page: 1,
+  last_page: 1,
+  total: 0
+})
+function goTo(p) {
+  page.value = p
+  // load() será chamado pelo watch
+}
 const toggle = (event, id) => {
     dataIdBeingDeleted.value = id;
     menu.value.toggle(event);
@@ -53,7 +65,7 @@ const getData = async (page = 1) => {
             retriviedData.value = response.data;
             totalRecords.value = response.data.total;
             isLoadingDiv.value = false;
-            console.log(retriviedData.value)
+            paginator.value = response.data;
         })
         .catch((error) => {
             isLoadingDiv.value = false;
@@ -179,7 +191,12 @@ onMounted(() => {
                   </table>
                 </div>
               </div>
-              <nav aria-label="Table Paging" class="my-3">
+              <PaginationSimple
+              v-if="paginator.links"
+              :links="paginator.links"
+              @navigate="goTo"
+            />
+              <!-- <nav aria-label="Table Paging" class="my-3">
                 <ul class="pagination justify-content-end mb-0">
                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -187,7 +204,7 @@ onMounted(() => {
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>
-              </nav>
+              </nav> -->
             </div> <!-- .col-12 -->
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->

@@ -848,6 +848,16 @@ const router = createRouter({
                     name: "admin.dashboard",
                     component: () => import("@/views/admin/Dashboard.vue"),
                 },
+                {
+                    path: "/admin/dashboard/statistic",
+                    name: "admin.dashboard.statistic",
+                    component: () => import("@/views/admin/DashboardEstatistica.vue"),
+                },
+                {
+                    path: "/admin/dashboard/available",
+                    name: "admin.dashboard.available",
+                    component: () => import("@/views/admin/DashboardDisponibilidade.vue"),
+                },
 
                 {
                     path: "/admin/equipments",

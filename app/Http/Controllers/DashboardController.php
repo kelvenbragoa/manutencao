@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipment;
+use App\Models\EquipmentFleet;
 use App\Models\EquipmentMovement;
 use Illuminate\Http\Request;
 
@@ -53,5 +55,12 @@ class DashboardController extends Controller
             'manutencao'=>$manutencao
         ]);
 
+    }
+
+
+    public function dashboarddisponibilidade(){
+        $fleets = EquipmentFleet::with('equipments.lastmovement')->get();
+
+        return response()->json(['fleet'=>$fleets]);
     }
 }
