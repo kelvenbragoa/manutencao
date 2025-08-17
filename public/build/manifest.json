@@ -1,6 +1,20 @@
 {
-  "_index.esm-DwPsDFS-.js": {
-    "file": "assets/index.esm-DwPsDFS-.js",
+  "_default-DHc6NpEv.css": {
+    "file": "assets/default-DHc6NpEv.css",
+    "src": "_default-DHc6NpEv.css"
+  },
+  "_default-DiC-XFXv.js": {
+    "file": "assets/default-DiC-XFXv.js",
+    "name": "default",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/default-DHc6NpEv.css"
+    ]
+  },
+  "_index.esm-DNsLtp-n.js": {
+    "file": "assets/index.esm-DNsLtp-n.js",
     "name": "index.esm",
     "imports": [
       "resources/js/app.js"
@@ -23,7 +37,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-DMvC9aVn.js",
+    "file": "assets/app-CCEPJBg6.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -118,6 +132,8 @@
       "resources/js/views/supervisor/exitmovement/ShowExitMovement.vue",
       "resources/js/views/supervisor/exitmovement/EditExitMovement.vue",
       "resources/js/views/admin/Dashboard.vue",
+      "resources/js/views/admin/DashboardEstatistica.vue",
+      "resources/js/views/admin/DashboardDisponibilidade.vue",
       "resources/js/views/admin/equipments/IndexEquipments.vue",
       "resources/js/views/admin/equipments/CreateEquipments.vue",
       "resources/js/views/admin/equipments/ShowEquipments.vue",
@@ -145,7 +161,7 @@
     ]
   },
   "resources/js/views/admin/Dashboard.vue": {
-    "file": "assets/Dashboard-V6b98TD5.js",
+    "file": "assets/Dashboard-BqY7mKvM.js",
     "name": "Dashboard",
     "src": "resources/js/views/admin/Dashboard.vue",
     "isDynamicEntry": true,
@@ -154,31 +170,52 @@
       "_moment-D4kkntM3.js"
     ]
   },
+  "resources/js/views/admin/DashboardDisponibilidade.vue": {
+    "file": "assets/DashboardDisponibilidade-DH49qNE7.js",
+    "name": "DashboardDisponibilidade",
+    "src": "resources/js/views/admin/DashboardDisponibilidade.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_moment-D4kkntM3.js"
+    ]
+  },
+  "resources/js/views/admin/DashboardEstatistica.vue": {
+    "file": "assets/DashboardEstatistica-_aydh2dY.js",
+    "name": "DashboardEstatistica",
+    "src": "resources/js/views/admin/DashboardEstatistica.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_moment-D4kkntM3.js"
+    ]
+  },
   "resources/js/views/admin/entrymovement/CreateEntryMovement.vue": {
-    "file": "assets/CreateEntryMovement-FmuKhogD.js",
+    "file": "assets/CreateEntryMovement-CMYo4mDn.js",
     "name": "CreateEntryMovement",
     "src": "resources/js/views/admin/entrymovement/CreateEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
+      "_default-DiC-XFXv.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/admin/entrymovement/EditEntryMovement.vue": {
-    "file": "assets/EditEntryMovement-Ds31rdst.js",
+    "file": "assets/EditEntryMovement-Bhpx5q7X.js",
     "name": "EditEntryMovement",
     "src": "resources/js/views/admin/entrymovement/EditEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/admin/entrymovement/IndexEntryMovement.vue": {
-    "file": "assets/IndexEntryMovement-CAgiJUva.js",
+    "file": "assets/IndexEntryMovement-RmDOPapH.js",
     "name": "IndexEntryMovement",
     "src": "resources/js/views/admin/entrymovement/IndexEntryMovement.vue",
     "isDynamicEntry": true,
@@ -188,7 +225,7 @@
     ]
   },
   "resources/js/views/admin/entrymovement/ShowEntryMovement.vue": {
-    "file": "assets/ShowEntryMovement-2bM9_7gb.js",
+    "file": "assets/ShowEntryMovement-BjYoZJ92.js",
     "name": "ShowEntryMovement",
     "src": "resources/js/views/admin/entrymovement/ShowEntryMovement.vue",
     "isDynamicEntry": true,
@@ -198,30 +235,30 @@
     ]
   },
   "resources/js/views/admin/equipmentfleet/CreateEquipmentFleet.vue": {
-    "file": "assets/CreateEquipmentFleet-C42xmM3d.js",
+    "file": "assets/CreateEquipmentFleet-BY3oCRMY.js",
     "name": "CreateEquipmentFleet",
     "src": "resources/js/views/admin/equipmentfleet/CreateEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/admin/equipmentfleet/EditEquipmentFleet.vue": {
-    "file": "assets/EditEquipmentFleet-CCSi44T2.js",
+    "file": "assets/EditEquipmentFleet-BnvUOOE9.js",
     "name": "EditEquipmentFleet",
     "src": "resources/js/views/admin/equipmentfleet/EditEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/admin/equipmentfleet/IndexEquipmentFleet.vue": {
-    "file": "assets/IndexEquipmentFleet-DytIhQB8.js",
+    "file": "assets/IndexEquipmentFleet-CfWV79Nc.js",
     "name": "IndexEquipmentFleet",
     "src": "resources/js/views/admin/equipmentfleet/IndexEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -231,7 +268,7 @@
     ]
   },
   "resources/js/views/admin/equipmentfleet/ShowEquipmentFleet.vue": {
-    "file": "assets/ShowEquipmentFleet-Djrhu-MD.js",
+    "file": "assets/ShowEquipmentFleet-DQMmIE1y.js",
     "name": "ShowEquipmentFleet",
     "src": "resources/js/views/admin/equipmentfleet/ShowEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -241,30 +278,30 @@
     ]
   },
   "resources/js/views/admin/equipments/CreateEquipments.vue": {
-    "file": "assets/CreateEquipments-CL7VOMvY.js",
+    "file": "assets/CreateEquipments-CsoF0z3V.js",
     "name": "CreateEquipments",
     "src": "resources/js/views/admin/equipments/CreateEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
-      "_parseISO-B0NupkFu.js"
+      "_default-DiC-XFXv.js"
     ]
   },
   "resources/js/views/admin/equipments/EditEquipments.vue": {
-    "file": "assets/EditEquipments-vIcPCO52.js",
+    "file": "assets/EditEquipments-DB6WX-n-.js",
     "name": "EditEquipments",
     "src": "resources/js/views/admin/equipments/EditEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/admin/equipments/IndexEquipments.vue": {
-    "file": "assets/IndexEquipments-2djtkuyN.js",
+    "file": "assets/IndexEquipments-CREpPl9E.js",
     "name": "IndexEquipments",
     "src": "resources/js/views/admin/equipments/IndexEquipments.vue",
     "isDynamicEntry": true,
@@ -274,7 +311,7 @@
     ]
   },
   "resources/js/views/admin/equipments/ShowEquipments.vue": {
-    "file": "assets/ShowEquipments-BeZx45TJ.js",
+    "file": "assets/ShowEquipments-BPXGP-Su.js",
     "name": "ShowEquipments",
     "src": "resources/js/views/admin/equipments/ShowEquipments.vue",
     "isDynamicEntry": true,
@@ -284,30 +321,30 @@
     ]
   },
   "resources/js/views/admin/exitmovement/CreateExitMovement.vue": {
-    "file": "assets/CreateExitMovement-DX2LpVPh.js",
+    "file": "assets/CreateExitMovement-CL4u6UAn.js",
     "name": "CreateExitMovement",
     "src": "resources/js/views/admin/exitmovement/CreateExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/admin/exitmovement/EditExitMovement.vue": {
-    "file": "assets/EditExitMovement-SZpaA96G.js",
+    "file": "assets/EditExitMovement-CJCJwwPn.js",
     "name": "EditExitMovement",
     "src": "resources/js/views/admin/exitmovement/EditExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/admin/exitmovement/IndexExitMovement.vue": {
-    "file": "assets/IndexExitMovement-U7aa145C.js",
+    "file": "assets/IndexExitMovement-6E6WJF9b.js",
     "name": "IndexExitMovement",
     "src": "resources/js/views/admin/exitmovement/IndexExitMovement.vue",
     "isDynamicEntry": true,
@@ -317,7 +354,7 @@
     ]
   },
   "resources/js/views/admin/exitmovement/ShowExitMovement.vue": {
-    "file": "assets/ShowExitMovement-B3QCbKQx.js",
+    "file": "assets/ShowExitMovement-RtLzgcjv.js",
     "name": "ShowExitMovement",
     "src": "resources/js/views/admin/exitmovement/ShowExitMovement.vue",
     "isDynamicEntry": true,
@@ -327,7 +364,7 @@
     ]
   },
   "resources/js/views/admin/movement/IndexMovement.vue": {
-    "file": "assets/IndexMovement-D2FxKReF.js",
+    "file": "assets/IndexMovement-DDe6stWl.js",
     "name": "IndexMovement",
     "src": "resources/js/views/admin/movement/IndexMovement.vue",
     "isDynamicEntry": true,
@@ -337,30 +374,30 @@
     ]
   },
   "resources/js/views/admin/user/CreateUser.vue": {
-    "file": "assets/CreateUser-DW8quc8N.js",
+    "file": "assets/CreateUser-ChwgjX-y.js",
     "name": "CreateUser",
     "src": "resources/js/views/admin/user/CreateUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/admin/user/EditUser.vue": {
-    "file": "assets/EditUser-buGVossF.js",
+    "file": "assets/EditUser-B6xiiOQJ.js",
     "name": "EditUser",
     "src": "resources/js/views/admin/user/EditUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/admin/user/IndexUser.vue": {
-    "file": "assets/IndexUser-C76TkGXZ.js",
+    "file": "assets/IndexUser-DwUinkEd.js",
     "name": "IndexUser",
     "src": "resources/js/views/admin/user/IndexUser.vue",
     "isDynamicEntry": true,
@@ -370,7 +407,7 @@
     ]
   },
   "resources/js/views/admin/user/ShowUser.vue": {
-    "file": "assets/ShowUser-BeHbzOip.js",
+    "file": "assets/ShowUser-DnLunWHL.js",
     "name": "ShowUser",
     "src": "resources/js/views/admin/user/ShowUser.vue",
     "isDynamicEntry": true,
@@ -380,7 +417,7 @@
     ]
   },
   "resources/js/views/area/Dashboard.vue": {
-    "file": "assets/Dashboard-Du0810Fo.js",
+    "file": "assets/Dashboard-tIJHpDjC.js",
     "name": "Dashboard",
     "src": "resources/js/views/area/Dashboard.vue",
     "isDynamicEntry": true,
@@ -390,30 +427,30 @@
     ]
   },
   "resources/js/views/area/entrymovement/CreateEntryMovement.vue": {
-    "file": "assets/CreateEntryMovement-dqhRF2Lk.js",
+    "file": "assets/CreateEntryMovement-C_EcLV4Q.js",
     "name": "CreateEntryMovement",
     "src": "resources/js/views/area/entrymovement/CreateEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/area/entrymovement/EditEntryMovement.vue": {
-    "file": "assets/EditEntryMovement-CFgMf2HI.js",
+    "file": "assets/EditEntryMovement-CjeosdDC.js",
     "name": "EditEntryMovement",
     "src": "resources/js/views/area/entrymovement/EditEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/area/entrymovement/IndexEntryMovement.vue": {
-    "file": "assets/IndexEntryMovement-BsT6Hh8z.js",
+    "file": "assets/IndexEntryMovement-C4aZuF4e.js",
     "name": "IndexEntryMovement",
     "src": "resources/js/views/area/entrymovement/IndexEntryMovement.vue",
     "isDynamicEntry": true,
@@ -423,7 +460,7 @@
     ]
   },
   "resources/js/views/area/entrymovement/ShowEntryMovement.vue": {
-    "file": "assets/ShowEntryMovement-BCKgEStO.js",
+    "file": "assets/ShowEntryMovement-ooGbyMNk.js",
     "name": "ShowEntryMovement",
     "src": "resources/js/views/area/entrymovement/ShowEntryMovement.vue",
     "isDynamicEntry": true,
@@ -433,30 +470,30 @@
     ]
   },
   "resources/js/views/area/equipmentfleet/CreateEquipmentFleet.vue": {
-    "file": "assets/CreateEquipmentFleet-DGNL8SMs.js",
+    "file": "assets/CreateEquipmentFleet-Dlrq1MyI.js",
     "name": "CreateEquipmentFleet",
     "src": "resources/js/views/area/equipmentfleet/CreateEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/area/equipmentfleet/EditEquipmentFleet.vue": {
-    "file": "assets/EditEquipmentFleet-Dobpb1y4.js",
+    "file": "assets/EditEquipmentFleet-BgRBtO5c.js",
     "name": "EditEquipmentFleet",
     "src": "resources/js/views/area/equipmentfleet/EditEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/area/equipmentfleet/IndexEquipmentFleet.vue": {
-    "file": "assets/IndexEquipmentFleet-oRKSRAna.js",
+    "file": "assets/IndexEquipmentFleet-ClXeLzIn.js",
     "name": "IndexEquipmentFleet",
     "src": "resources/js/views/area/equipmentfleet/IndexEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -466,7 +503,7 @@
     ]
   },
   "resources/js/views/area/equipmentfleet/ShowEquipmentFleet.vue": {
-    "file": "assets/ShowEquipmentFleet-BryDiRNa.js",
+    "file": "assets/ShowEquipmentFleet-CMsNSkSR.js",
     "name": "ShowEquipmentFleet",
     "src": "resources/js/views/area/equipmentfleet/ShowEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -476,30 +513,30 @@
     ]
   },
   "resources/js/views/area/equipments/CreateEquipments.vue": {
-    "file": "assets/CreateEquipments-Bkcqou5s.js",
+    "file": "assets/CreateEquipments-0C1vRW5a.js",
     "name": "CreateEquipments",
     "src": "resources/js/views/area/equipments/CreateEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/area/equipments/EditEquipments.vue": {
-    "file": "assets/EditEquipments-Xy-3zZf1.js",
+    "file": "assets/EditEquipments-B3xGphcn.js",
     "name": "EditEquipments",
     "src": "resources/js/views/area/equipments/EditEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/area/equipments/IndexEquipments.vue": {
-    "file": "assets/IndexEquipments-CWBzz1oZ.js",
+    "file": "assets/IndexEquipments-B2eNl7vT.js",
     "name": "IndexEquipments",
     "src": "resources/js/views/area/equipments/IndexEquipments.vue",
     "isDynamicEntry": true,
@@ -509,7 +546,7 @@
     ]
   },
   "resources/js/views/area/equipments/ShowEquipments.vue": {
-    "file": "assets/ShowEquipments-BOx3ZA2a.js",
+    "file": "assets/ShowEquipments-CoBY6El-.js",
     "name": "ShowEquipments",
     "src": "resources/js/views/area/equipments/ShowEquipments.vue",
     "isDynamicEntry": true,
@@ -519,30 +556,30 @@
     ]
   },
   "resources/js/views/area/exitmovement/CreateExitMovement.vue": {
-    "file": "assets/CreateExitMovement-CIfgATBy.js",
+    "file": "assets/CreateExitMovement-CHMOnsX5.js",
     "name": "CreateExitMovement",
     "src": "resources/js/views/area/exitmovement/CreateExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/area/exitmovement/EditExitMovement.vue": {
-    "file": "assets/EditExitMovement-B9HtSRUN.js",
+    "file": "assets/EditExitMovement-BYMTCFen.js",
     "name": "EditExitMovement",
     "src": "resources/js/views/area/exitmovement/EditExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/area/exitmovement/IndexExitMovement.vue": {
-    "file": "assets/IndexExitMovement-DFtHZ0Iu.js",
+    "file": "assets/IndexExitMovement-0algZJA-.js",
     "name": "IndexExitMovement",
     "src": "resources/js/views/area/exitmovement/IndexExitMovement.vue",
     "isDynamicEntry": true,
@@ -552,7 +589,7 @@
     ]
   },
   "resources/js/views/area/exitmovement/ShowExitMovement.vue": {
-    "file": "assets/ShowExitMovement-D4tUE42q.js",
+    "file": "assets/ShowExitMovement-6vQ0UImd.js",
     "name": "ShowExitMovement",
     "src": "resources/js/views/area/exitmovement/ShowExitMovement.vue",
     "isDynamicEntry": true,
@@ -562,7 +599,7 @@
     ]
   },
   "resources/js/views/area/movement/IndexMovement.vue": {
-    "file": "assets/IndexMovement-59SclPRb.js",
+    "file": "assets/IndexMovement-DZJg28la.js",
     "name": "IndexMovement",
     "src": "resources/js/views/area/movement/IndexMovement.vue",
     "isDynamicEntry": true,
@@ -572,30 +609,30 @@
     ]
   },
   "resources/js/views/area/user/CreateUser.vue": {
-    "file": "assets/CreateUser-GOrZg_WA.js",
+    "file": "assets/CreateUser-DAjdQh9J.js",
     "name": "CreateUser",
     "src": "resources/js/views/area/user/CreateUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/area/user/EditUser.vue": {
-    "file": "assets/EditUser-CGDy047Y.js",
+    "file": "assets/EditUser-DRwVJM55.js",
     "name": "EditUser",
     "src": "resources/js/views/area/user/EditUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/area/user/IndexUser.vue": {
-    "file": "assets/IndexUser-C3k9hQrp.js",
+    "file": "assets/IndexUser-CPPeW8cE.js",
     "name": "IndexUser",
     "src": "resources/js/views/area/user/IndexUser.vue",
     "isDynamicEntry": true,
@@ -605,7 +642,7 @@
     ]
   },
   "resources/js/views/area/user/ShowUser.vue": {
-    "file": "assets/ShowUser-DXBTlsAI.js",
+    "file": "assets/ShowUser-D56rtVB0.js",
     "name": "ShowUser",
     "src": "resources/js/views/area/user/ShowUser.vue",
     "isDynamicEntry": true,
@@ -615,7 +652,7 @@
     ]
   },
   "resources/js/views/auth/Login.vue": {
-    "file": "assets/Login-CCUC4dqk.js",
+    "file": "assets/Login-CBzYfSGZ.js",
     "name": "Login",
     "src": "resources/js/views/auth/Login.vue",
     "isDynamicEntry": true,
@@ -624,7 +661,7 @@
     ]
   },
   "resources/js/views/ocorrencia/Dashboard.vue": {
-    "file": "assets/Dashboard-jMSGAPK_.js",
+    "file": "assets/Dashboard-BvzgJy67.js",
     "name": "Dashboard",
     "src": "resources/js/views/ocorrencia/Dashboard.vue",
     "isDynamicEntry": true,
@@ -634,30 +671,30 @@
     ]
   },
   "resources/js/views/ocorrencia/entrymovement/CreateEntryMovement.vue": {
-    "file": "assets/CreateEntryMovement-D9pEsAL1.js",
+    "file": "assets/CreateEntryMovement-IHNa_jDh.js",
     "name": "CreateEntryMovement",
     "src": "resources/js/views/ocorrencia/entrymovement/CreateEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/ocorrencia/entrymovement/EditEntryMovement.vue": {
-    "file": "assets/EditEntryMovement-CYHDsuYs.js",
+    "file": "assets/EditEntryMovement-u23i5DlN.js",
     "name": "EditEntryMovement",
     "src": "resources/js/views/ocorrencia/entrymovement/EditEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/ocorrencia/entrymovement/IndexEntryMovement.vue": {
-    "file": "assets/IndexEntryMovement-k0C4H6Yk.js",
+    "file": "assets/IndexEntryMovement-BIP9S7Gq.js",
     "name": "IndexEntryMovement",
     "src": "resources/js/views/ocorrencia/entrymovement/IndexEntryMovement.vue",
     "isDynamicEntry": true,
@@ -667,7 +704,7 @@
     ]
   },
   "resources/js/views/ocorrencia/entrymovement/ShowEntryMovement.vue": {
-    "file": "assets/ShowEntryMovement-B1xNdUf_.js",
+    "file": "assets/ShowEntryMovement-D2V_ANIq.js",
     "name": "ShowEntryMovement",
     "src": "resources/js/views/ocorrencia/entrymovement/ShowEntryMovement.vue",
     "isDynamicEntry": true,
@@ -677,30 +714,30 @@
     ]
   },
   "resources/js/views/ocorrencia/equipmentfleet/CreateEquipmentFleet.vue": {
-    "file": "assets/CreateEquipmentFleet-CxNNpmJV.js",
+    "file": "assets/CreateEquipmentFleet-D2XXOUTS.js",
     "name": "CreateEquipmentFleet",
     "src": "resources/js/views/ocorrencia/equipmentfleet/CreateEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/ocorrencia/equipmentfleet/EditEquipmentFleet.vue": {
-    "file": "assets/EditEquipmentFleet-BU0iGjaM.js",
+    "file": "assets/EditEquipmentFleet-B65gzfbI.js",
     "name": "EditEquipmentFleet",
     "src": "resources/js/views/ocorrencia/equipmentfleet/EditEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/ocorrencia/equipmentfleet/IndexEquipmentFleet.vue": {
-    "file": "assets/IndexEquipmentFleet-k94W_DXR.js",
+    "file": "assets/IndexEquipmentFleet-BUK99xTd.js",
     "name": "IndexEquipmentFleet",
     "src": "resources/js/views/ocorrencia/equipmentfleet/IndexEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -710,7 +747,7 @@
     ]
   },
   "resources/js/views/ocorrencia/equipmentfleet/ShowEquipmentFleet.vue": {
-    "file": "assets/ShowEquipmentFleet-CcL7SOGp.js",
+    "file": "assets/ShowEquipmentFleet-MjdI1OpS.js",
     "name": "ShowEquipmentFleet",
     "src": "resources/js/views/ocorrencia/equipmentfleet/ShowEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -720,30 +757,30 @@
     ]
   },
   "resources/js/views/ocorrencia/equipments/CreateEquipments.vue": {
-    "file": "assets/CreateEquipments-CWKffPAZ.js",
+    "file": "assets/CreateEquipments-D0Y9MF7X.js",
     "name": "CreateEquipments",
     "src": "resources/js/views/ocorrencia/equipments/CreateEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/ocorrencia/equipments/EditEquipments.vue": {
-    "file": "assets/EditEquipments-BsMYpLuw.js",
+    "file": "assets/EditEquipments-Ckfc2Gpd.js",
     "name": "EditEquipments",
     "src": "resources/js/views/ocorrencia/equipments/EditEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/ocorrencia/equipments/IndexEquipments.vue": {
-    "file": "assets/IndexEquipments-BG8KMhg9.js",
+    "file": "assets/IndexEquipments-BhQaLDYM.js",
     "name": "IndexEquipments",
     "src": "resources/js/views/ocorrencia/equipments/IndexEquipments.vue",
     "isDynamicEntry": true,
@@ -753,7 +790,7 @@
     ]
   },
   "resources/js/views/ocorrencia/equipments/ShowEquipments.vue": {
-    "file": "assets/ShowEquipments-Z_QhlrJ2.js",
+    "file": "assets/ShowEquipments-BRUbaIHf.js",
     "name": "ShowEquipments",
     "src": "resources/js/views/ocorrencia/equipments/ShowEquipments.vue",
     "isDynamicEntry": true,
@@ -763,30 +800,30 @@
     ]
   },
   "resources/js/views/ocorrencia/exitmovement/CreateExitMovement.vue": {
-    "file": "assets/CreateExitMovement-CtEIVnVG.js",
+    "file": "assets/CreateExitMovement-9brTFlAB.js",
     "name": "CreateExitMovement",
     "src": "resources/js/views/ocorrencia/exitmovement/CreateExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/ocorrencia/exitmovement/EditExitMovement.vue": {
-    "file": "assets/EditExitMovement-CLttfnOQ.js",
+    "file": "assets/EditExitMovement-CWxAPG7x.js",
     "name": "EditExitMovement",
     "src": "resources/js/views/ocorrencia/exitmovement/EditExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/ocorrencia/exitmovement/IndexExitMovement.vue": {
-    "file": "assets/IndexExitMovement-CN_zdlVw.js",
+    "file": "assets/IndexExitMovement-DfcurXev.js",
     "name": "IndexExitMovement",
     "src": "resources/js/views/ocorrencia/exitmovement/IndexExitMovement.vue",
     "isDynamicEntry": true,
@@ -796,7 +833,7 @@
     ]
   },
   "resources/js/views/ocorrencia/exitmovement/ShowExitMovement.vue": {
-    "file": "assets/ShowExitMovement-okSgTO-R.js",
+    "file": "assets/ShowExitMovement-CEgWSbCV.js",
     "name": "ShowExitMovement",
     "src": "resources/js/views/ocorrencia/exitmovement/ShowExitMovement.vue",
     "isDynamicEntry": true,
@@ -806,7 +843,7 @@
     ]
   },
   "resources/js/views/ocorrencia/movement/IndexMovement.vue": {
-    "file": "assets/IndexMovement-Bt0DURnR.js",
+    "file": "assets/IndexMovement-DA7w1gzC.js",
     "name": "IndexMovement",
     "src": "resources/js/views/ocorrencia/movement/IndexMovement.vue",
     "isDynamicEntry": true,
@@ -816,30 +853,30 @@
     ]
   },
   "resources/js/views/ocorrencia/user/CreateUser.vue": {
-    "file": "assets/CreateUser-CsOWkSSU.js",
+    "file": "assets/CreateUser-BEkdGvdv.js",
     "name": "CreateUser",
     "src": "resources/js/views/ocorrencia/user/CreateUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/ocorrencia/user/EditUser.vue": {
-    "file": "assets/EditUser-C00xKQkn.js",
+    "file": "assets/EditUser-D1hwJUjY.js",
     "name": "EditUser",
     "src": "resources/js/views/ocorrencia/user/EditUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/ocorrencia/user/IndexUser.vue": {
-    "file": "assets/IndexUser-C-iRHnDF.js",
+    "file": "assets/IndexUser-BxXeq2wM.js",
     "name": "IndexUser",
     "src": "resources/js/views/ocorrencia/user/IndexUser.vue",
     "isDynamicEntry": true,
@@ -849,7 +886,7 @@
     ]
   },
   "resources/js/views/ocorrencia/user/ShowUser.vue": {
-    "file": "assets/ShowUser-BeT3HLpI.js",
+    "file": "assets/ShowUser-_zc9wtGW.js",
     "name": "ShowUser",
     "src": "resources/js/views/ocorrencia/user/ShowUser.vue",
     "isDynamicEntry": true,
@@ -859,7 +896,7 @@
     ]
   },
   "resources/js/views/seguranca/Dashboard.vue": {
-    "file": "assets/Dashboard-pOOWCi3T.js",
+    "file": "assets/Dashboard-0rT8BdMc.js",
     "name": "Dashboard",
     "src": "resources/js/views/seguranca/Dashboard.vue",
     "isDynamicEntry": true,
@@ -869,30 +906,30 @@
     ]
   },
   "resources/js/views/seguranca/entrymovement/CreateEntryMovement.vue": {
-    "file": "assets/CreateEntryMovement-hiXZYgTZ.js",
+    "file": "assets/CreateEntryMovement-PA-CH7vk.js",
     "name": "CreateEntryMovement",
     "src": "resources/js/views/seguranca/entrymovement/CreateEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/seguranca/entrymovement/EditEntryMovement.vue": {
-    "file": "assets/EditEntryMovement-C9qL_yA6.js",
+    "file": "assets/EditEntryMovement-Bs6_PG0Z.js",
     "name": "EditEntryMovement",
     "src": "resources/js/views/seguranca/entrymovement/EditEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/seguranca/entrymovement/IndexEntryMovement.vue": {
-    "file": "assets/IndexEntryMovement-BSo5oO-Y.js",
+    "file": "assets/IndexEntryMovement-BhFL3BWH.js",
     "name": "IndexEntryMovement",
     "src": "resources/js/views/seguranca/entrymovement/IndexEntryMovement.vue",
     "isDynamicEntry": true,
@@ -902,7 +939,7 @@
     ]
   },
   "resources/js/views/seguranca/entrymovement/ShowEntryMovement.vue": {
-    "file": "assets/ShowEntryMovement-B6eJYEH1.js",
+    "file": "assets/ShowEntryMovement-CFTOB4ug.js",
     "name": "ShowEntryMovement",
     "src": "resources/js/views/seguranca/entrymovement/ShowEntryMovement.vue",
     "isDynamicEntry": true,
@@ -912,30 +949,30 @@
     ]
   },
   "resources/js/views/seguranca/equipmentfleet/CreateEquipmentFleet.vue": {
-    "file": "assets/CreateEquipmentFleet-ChuU2a3J.js",
+    "file": "assets/CreateEquipmentFleet-lzzBiQcR.js",
     "name": "CreateEquipmentFleet",
     "src": "resources/js/views/seguranca/equipmentfleet/CreateEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/seguranca/equipmentfleet/EditEquipmentFleet.vue": {
-    "file": "assets/EditEquipmentFleet-BJkg1_Ge.js",
+    "file": "assets/EditEquipmentFleet-DDaowvbD.js",
     "name": "EditEquipmentFleet",
     "src": "resources/js/views/seguranca/equipmentfleet/EditEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/seguranca/equipmentfleet/IndexEquipmentFleet.vue": {
-    "file": "assets/IndexEquipmentFleet-pGaGKOxa.js",
+    "file": "assets/IndexEquipmentFleet-Cusm6i2X.js",
     "name": "IndexEquipmentFleet",
     "src": "resources/js/views/seguranca/equipmentfleet/IndexEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -945,7 +982,7 @@
     ]
   },
   "resources/js/views/seguranca/equipmentfleet/ShowEquipmentFleet.vue": {
-    "file": "assets/ShowEquipmentFleet-yupQLdn5.js",
+    "file": "assets/ShowEquipmentFleet-90tTWvAL.js",
     "name": "ShowEquipmentFleet",
     "src": "resources/js/views/seguranca/equipmentfleet/ShowEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -955,30 +992,30 @@
     ]
   },
   "resources/js/views/seguranca/equipments/CreateEquipments.vue": {
-    "file": "assets/CreateEquipments-Bw7s0dKj.js",
+    "file": "assets/CreateEquipments-D_AEMLkh.js",
     "name": "CreateEquipments",
     "src": "resources/js/views/seguranca/equipments/CreateEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/seguranca/equipments/EditEquipments.vue": {
-    "file": "assets/EditEquipments-CIIaOuDs.js",
+    "file": "assets/EditEquipments-CE9U4dCg.js",
     "name": "EditEquipments",
     "src": "resources/js/views/seguranca/equipments/EditEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/seguranca/equipments/IndexEquipments.vue": {
-    "file": "assets/IndexEquipments--7sIYO9E.js",
+    "file": "assets/IndexEquipments-DtOOiJrr.js",
     "name": "IndexEquipments",
     "src": "resources/js/views/seguranca/equipments/IndexEquipments.vue",
     "isDynamicEntry": true,
@@ -988,7 +1025,7 @@
     ]
   },
   "resources/js/views/seguranca/equipments/ShowEquipments.vue": {
-    "file": "assets/ShowEquipments-NQdRinxh.js",
+    "file": "assets/ShowEquipments-1C--Znhs.js",
     "name": "ShowEquipments",
     "src": "resources/js/views/seguranca/equipments/ShowEquipments.vue",
     "isDynamicEntry": true,
@@ -998,30 +1035,30 @@
     ]
   },
   "resources/js/views/seguranca/exitmovement/CreateExitMovement.vue": {
-    "file": "assets/CreateExitMovement-HGhyEUh_.js",
+    "file": "assets/CreateExitMovement-BotsJWwr.js",
     "name": "CreateExitMovement",
     "src": "resources/js/views/seguranca/exitmovement/CreateExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/seguranca/exitmovement/EditExitMovement.vue": {
-    "file": "assets/EditExitMovement-BOqxUlPB.js",
+    "file": "assets/EditExitMovement-BLmHAitu.js",
     "name": "EditExitMovement",
     "src": "resources/js/views/seguranca/exitmovement/EditExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/seguranca/exitmovement/IndexExitMovement.vue": {
-    "file": "assets/IndexExitMovement-DIx1QlFC.js",
+    "file": "assets/IndexExitMovement-BwTpeqx4.js",
     "name": "IndexExitMovement",
     "src": "resources/js/views/seguranca/exitmovement/IndexExitMovement.vue",
     "isDynamicEntry": true,
@@ -1031,7 +1068,7 @@
     ]
   },
   "resources/js/views/seguranca/exitmovement/ShowExitMovement.vue": {
-    "file": "assets/ShowExitMovement-BxNv-k3Y.js",
+    "file": "assets/ShowExitMovement-C9lRGFT-.js",
     "name": "ShowExitMovement",
     "src": "resources/js/views/seguranca/exitmovement/ShowExitMovement.vue",
     "isDynamicEntry": true,
@@ -1041,7 +1078,7 @@
     ]
   },
   "resources/js/views/seguranca/movement/IndexMovement.vue": {
-    "file": "assets/IndexMovement-d1mfZ9W7.js",
+    "file": "assets/IndexMovement-DzuraX-8.js",
     "name": "IndexMovement",
     "src": "resources/js/views/seguranca/movement/IndexMovement.vue",
     "isDynamicEntry": true,
@@ -1051,30 +1088,30 @@
     ]
   },
   "resources/js/views/seguranca/user/CreateUser.vue": {
-    "file": "assets/CreateUser-B4YVgpf1.js",
+    "file": "assets/CreateUser-DQ-if-Ae.js",
     "name": "CreateUser",
     "src": "resources/js/views/seguranca/user/CreateUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/seguranca/user/EditUser.vue": {
-    "file": "assets/EditUser-BybcbB5g.js",
+    "file": "assets/EditUser-D49ElZdX.js",
     "name": "EditUser",
     "src": "resources/js/views/seguranca/user/EditUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/seguranca/user/IndexUser.vue": {
-    "file": "assets/IndexUser-DeIVAiJT.js",
+    "file": "assets/IndexUser-MVptyeR9.js",
     "name": "IndexUser",
     "src": "resources/js/views/seguranca/user/IndexUser.vue",
     "isDynamicEntry": true,
@@ -1084,7 +1121,7 @@
     ]
   },
   "resources/js/views/seguranca/user/ShowUser.vue": {
-    "file": "assets/ShowUser-CxmutNTJ.js",
+    "file": "assets/ShowUser-BWRNg-rp.js",
     "name": "ShowUser",
     "src": "resources/js/views/seguranca/user/ShowUser.vue",
     "isDynamicEntry": true,
@@ -1094,7 +1131,7 @@
     ]
   },
   "resources/js/views/supervisor/Dashboard.vue": {
-    "file": "assets/Dashboard-Cyzl65YV.js",
+    "file": "assets/Dashboard-BkDTFtee.js",
     "name": "Dashboard",
     "src": "resources/js/views/supervisor/Dashboard.vue",
     "isDynamicEntry": true,
@@ -1104,30 +1141,30 @@
     ]
   },
   "resources/js/views/supervisor/entrymovement/CreateEntryMovement.vue": {
-    "file": "assets/CreateEntryMovement-CEkIPAxa.js",
+    "file": "assets/CreateEntryMovement-BfVaO6dt.js",
     "name": "CreateEntryMovement",
     "src": "resources/js/views/supervisor/entrymovement/CreateEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/supervisor/entrymovement/EditEntryMovement.vue": {
-    "file": "assets/EditEntryMovement-BMmW3_9L.js",
+    "file": "assets/EditEntryMovement-AjLIxd_p.js",
     "name": "EditEntryMovement",
     "src": "resources/js/views/supervisor/entrymovement/EditEntryMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/supervisor/entrymovement/IndexEntryMovement.vue": {
-    "file": "assets/IndexEntryMovement-C4PC8End.js",
+    "file": "assets/IndexEntryMovement-D-M9CPEC.js",
     "name": "IndexEntryMovement",
     "src": "resources/js/views/supervisor/entrymovement/IndexEntryMovement.vue",
     "isDynamicEntry": true,
@@ -1137,7 +1174,7 @@
     ]
   },
   "resources/js/views/supervisor/entrymovement/ShowEntryMovement.vue": {
-    "file": "assets/ShowEntryMovement-B_MQeDFJ.js",
+    "file": "assets/ShowEntryMovement-CRLXp8_D.js",
     "name": "ShowEntryMovement",
     "src": "resources/js/views/supervisor/entrymovement/ShowEntryMovement.vue",
     "isDynamicEntry": true,
@@ -1147,30 +1184,30 @@
     ]
   },
   "resources/js/views/supervisor/equipmentfleet/CreateEquipmentFleet.vue": {
-    "file": "assets/CreateEquipmentFleet-DgxgSguQ.js",
+    "file": "assets/CreateEquipmentFleet-C2exssfd.js",
     "name": "CreateEquipmentFleet",
     "src": "resources/js/views/supervisor/equipmentfleet/CreateEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/supervisor/equipmentfleet/EditEquipmentFleet.vue": {
-    "file": "assets/EditEquipmentFleet-P6GxevGr.js",
+    "file": "assets/EditEquipmentFleet-D7xqK6RA.js",
     "name": "EditEquipmentFleet",
     "src": "resources/js/views/supervisor/equipmentfleet/EditEquipmentFleet.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/supervisor/equipmentfleet/IndexEquipmentFleet.vue": {
-    "file": "assets/IndexEquipmentFleet-DZ4yBXdA.js",
+    "file": "assets/IndexEquipmentFleet-DCtKntsw.js",
     "name": "IndexEquipmentFleet",
     "src": "resources/js/views/supervisor/equipmentfleet/IndexEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -1180,7 +1217,7 @@
     ]
   },
   "resources/js/views/supervisor/equipmentfleet/ShowEquipmentFleet.vue": {
-    "file": "assets/ShowEquipmentFleet-Cey5jv9y.js",
+    "file": "assets/ShowEquipmentFleet-cK7O5OAu.js",
     "name": "ShowEquipmentFleet",
     "src": "resources/js/views/supervisor/equipmentfleet/ShowEquipmentFleet.vue",
     "isDynamicEntry": true,
@@ -1190,30 +1227,30 @@
     ]
   },
   "resources/js/views/supervisor/equipments/CreateEquipments.vue": {
-    "file": "assets/CreateEquipments-BT4MQHBB.js",
+    "file": "assets/CreateEquipments-BALamc-_.js",
     "name": "CreateEquipments",
     "src": "resources/js/views/supervisor/equipments/CreateEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/supervisor/equipments/EditEquipments.vue": {
-    "file": "assets/EditEquipments-D7pXX539.js",
+    "file": "assets/EditEquipments-BdM-ttDP.js",
     "name": "EditEquipments",
     "src": "resources/js/views/supervisor/equipments/EditEquipments.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/supervisor/equipments/IndexEquipments.vue": {
-    "file": "assets/IndexEquipments-cZbKB5Cn.js",
+    "file": "assets/IndexEquipments-DrUBRxjj.js",
     "name": "IndexEquipments",
     "src": "resources/js/views/supervisor/equipments/IndexEquipments.vue",
     "isDynamicEntry": true,
@@ -1223,7 +1260,7 @@
     ]
   },
   "resources/js/views/supervisor/equipments/ShowEquipments.vue": {
-    "file": "assets/ShowEquipments-BDhyqKeB.js",
+    "file": "assets/ShowEquipments-CPy9Aj2E.js",
     "name": "ShowEquipments",
     "src": "resources/js/views/supervisor/equipments/ShowEquipments.vue",
     "isDynamicEntry": true,
@@ -1233,30 +1270,30 @@
     ]
   },
   "resources/js/views/supervisor/exitmovement/CreateExitMovement.vue": {
-    "file": "assets/CreateExitMovement-eVjcWQx3.js",
+    "file": "assets/CreateExitMovement-CN8j9Osm.js",
     "name": "CreateExitMovement",
     "src": "resources/js/views/supervisor/exitmovement/CreateExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/supervisor/exitmovement/EditExitMovement.vue": {
-    "file": "assets/EditExitMovement-CzyAezo1.js",
+    "file": "assets/EditExitMovement-_g1qDoD2.js",
     "name": "EditExitMovement",
     "src": "resources/js/views/supervisor/exitmovement/EditExitMovement.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/supervisor/exitmovement/IndexExitMovement.vue": {
-    "file": "assets/IndexExitMovement-D5Bt1IY6.js",
+    "file": "assets/IndexExitMovement-uUONwHuA.js",
     "name": "IndexExitMovement",
     "src": "resources/js/views/supervisor/exitmovement/IndexExitMovement.vue",
     "isDynamicEntry": true,
@@ -1266,7 +1303,7 @@
     ]
   },
   "resources/js/views/supervisor/exitmovement/ShowExitMovement.vue": {
-    "file": "assets/ShowExitMovement-DTi-j4sW.js",
+    "file": "assets/ShowExitMovement-C8fA6GaM.js",
     "name": "ShowExitMovement",
     "src": "resources/js/views/supervisor/exitmovement/ShowExitMovement.vue",
     "isDynamicEntry": true,
@@ -1276,7 +1313,7 @@
     ]
   },
   "resources/js/views/supervisor/movement/IndexMovement.vue": {
-    "file": "assets/IndexMovement-jOsjkWVf.js",
+    "file": "assets/IndexMovement-M4nOM6WW.js",
     "name": "IndexMovement",
     "src": "resources/js/views/supervisor/movement/IndexMovement.vue",
     "isDynamicEntry": true,
@@ -1286,30 +1323,30 @@
     ]
   },
   "resources/js/views/supervisor/user/CreateUser.vue": {
-    "file": "assets/CreateUser-BlbrxCM4.js",
+    "file": "assets/CreateUser-Bc2cxP3T.js",
     "name": "CreateUser",
     "src": "resources/js/views/supervisor/user/CreateUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js",
       "_parseISO-B0NupkFu.js"
     ]
   },
   "resources/js/views/supervisor/user/EditUser.vue": {
-    "file": "assets/EditUser-DHHC857F.js",
+    "file": "assets/EditUser-BZ9Ypcw1.js",
     "name": "EditUser",
     "src": "resources/js/views/supervisor/user/EditUser.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index.esm-DwPsDFS-.js",
+      "_index.esm-DNsLtp-n.js",
       "_moment-D4kkntM3.js"
     ]
   },
   "resources/js/views/supervisor/user/IndexUser.vue": {
-    "file": "assets/IndexUser-DDh1Rda2.js",
+    "file": "assets/IndexUser-D3Z0uZnE.js",
     "name": "IndexUser",
     "src": "resources/js/views/supervisor/user/IndexUser.vue",
     "isDynamicEntry": true,
@@ -1319,7 +1356,7 @@
     ]
   },
   "resources/js/views/supervisor/user/ShowUser.vue": {
-    "file": "assets/ShowUser-DbK8vYTv.js",
+    "file": "assets/ShowUser-mq80OdrZ.js",
     "name": "ShowUser",
     "src": "resources/js/views/supervisor/user/ShowUser.vue",
     "isDynamicEntry": true,
