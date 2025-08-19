@@ -14,6 +14,6 @@ class Equipment extends Model
     }
 
     public function lastmovement(){
-        return $this->hasOne(EquipmentMovement::class, 'id', 'equipment_movement_id')->orderBy('id', 'desc');
+        return $this->hasOne(EquipmentMovement::class, 'equipment_id', 'id')->orderBy('id', 'desc');
     }
 }

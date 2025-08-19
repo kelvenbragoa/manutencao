@@ -8,4 +8,9 @@ class EquipmentFleet extends Model
 {
     //
     protected $guarded = [];
+
+    public function equipments()
+    {
+        return $this->hasMany(Equipment::class);
+    }
 }

@@ -13,7 +13,8 @@ class EquipmentMovement extends Model
         return $this->hasOne(Equipment::class, 'id', 'equipment_id');
     }
 
-    public function status(){
+    public function status()
+    {
         return $this->hasOne(EquipmentMovementStatus::class, 'id', 'equipment_movement_status_id');
     }
 }

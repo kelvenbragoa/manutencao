@@ -154,7 +154,7 @@ onUnmounted(() => {
                     <!-- Coluna Entrada -->
                     <div class="col-md-6">
                         <h4 class="mb-3" style="color: green">
-                            Viaturas Autorizadas - Entrada
+                            Equipamentos Autorizadas - Entrada
                         </h4>
                         <div class="card shadow mb-3" v-for="item in authorizedin">
                             <div class="card-body">
@@ -168,7 +168,7 @@ onUnmounted(() => {
                     <!-- Coluna Saída -->
                     <div class="col-md-6">
                         <h4 class="mb-3" style="color: red">
-                            Viaturas Autorizadas - Saída
+                            Equipamentos Autorizadas - Saída
                         </h4>
                         <div class="card shadow mb-3" v-for="item in authorizedout">
                             <div class="card-body">

@@ -58,9 +58,16 @@ class DashboardController extends Controller
     }
 
 
-    public function dashboarddisponibilidade(){
-        $fleets = EquipmentFleet::with('equipments.lastmovement')->get();
+    public function dashboarddisponibilidade()
+    {
+        $fleets = EquipmentFleet::with(['equipments.lastmovement','equipments.fleet'])->get();
 
-        return response()->json(['fleet'=>$fleets]);
+        $equipments = Equipment::with('lastmovement')->get();
+        
+
+        return response()->json([
+            'fleet'=>$fleets,
+            'equipments'=>$equipments
+        ]);
     }
 }

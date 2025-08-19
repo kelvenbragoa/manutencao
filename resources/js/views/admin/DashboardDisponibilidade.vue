@@ -28,7 +28,7 @@ const authorizedin = ref([]);
 const authorizedout = ref([]);
 const oficina = ref([]);
 const manutencao = ref([]);
-const fleet = ref([]);
+const fleets = ref([]);
 
 const nextstage = (id) => {
 
@@ -66,13 +66,13 @@ const confirmDeletion = (id) => {
 
 const getData = async (page = 1) => {
     axios
-        .get(`/api/dashboard`, {
+        .get(`/api/dashboarddisponibilidade`, {
             params: {
                 query: searchQuery.value,
             },
         })
         .then((response) => {
-            fleet.value = response.data.fleet;
+            fleets.value = response.data.fleet;
             isLoadingDiv.value = false;
             console.log(retriviedData.value)
         })
@@ -114,6 +114,21 @@ const debouncedSearch = debounce(() => {
     getData(currentPage.value);
 }, 300);
 
+
+function getSeverity(status) {
+    const statusMap = {
+        5: "success", // Aguardando Entrada
+        6: "success", // Na Oficina
+        1: "success", // Na Oficina
+        2: "warning", // Em Movimento
+        3: "warning", // Aguardando Saída
+        4: "warning", // Aguardando Manutenção
+    };
+
+    return statusMap[status] || "success";
+}
+
+
 watch(searchQuery, debouncedSearch);
 
 onMounted(() => {
@@ -136,7 +151,7 @@ onUnmounted(() => {
             <div class="col-12">
                 <div class="row align-items-center mb-2">
                     <div class="col">
-                        <h2 class="h5 page-title">Cornelder</h2>
+                        <!-- <h2 class="h5 page-title">Cornelder</h2> -->
                     </div>
                     <div class="col-auto">
                         <form class="form-inline">
@@ -167,16 +182,70 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" v-for="fleet in fleets" :key="fleet.id">
                     <!-- Coluna Entrada -->
                     <div class="col-md-12">
                         <h4 class="mb-3">
-                            Aguarda Aprovação
+                            {{fleet.name}}
                         </h4>
-                        <div class="card shadow mb-3" v-for="item in fleet">
-                            <div class="card-body">
-                               
-                            </div>
+                        <div class="card shadow mb-3">
+                                            <div class="card-body">
+                  <table class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Equipamento</th>
+                        <!-- <th>Frota</th> -->
+                        <!-- <th>Ref</th> -->
+                        <th>Estado</th>
+                        <!-- <th>Data</th> -->
+                        <!-- <th>Action</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="equipment in fleet.equipments" :key="equipment.id">
+                        <td>
+                          <p class="mb-0 ">{{equipment.id}}</p>
+                        </td>
+                        <td>
+                          <p class="mb-0 ">{{equipment.name}}</p>
+                        </td>
+                        <!-- <td>
+                          <p class="mb-0 ">{{equipment.fleet.name}}</p>
+                        </td> -->
+                        <!-- <td>
+                          <p class="mb-0 ">{{equipment.plate_number}}</p>
+                        </td> -->
+                        <td>
+                        <p class="mb-0 " >
+                            <span
+                                                    class="badge"
+                                                    :class="
+                                                        'badge-' +
+                                                        getSeverity(
+                                                            equipment.lastmovement?.equipment_movement_status_id ?? 0
+                                                        )
+                                                    "
+                                                >
+                            {{
+                                equipment.lastmovement
+                                    ? (equipment.lastmovement.equipment_movement_status_id === 1 || equipment.lastmovement.equipment_movement_status_id === 5 || equipment.lastmovement.equipment_movement_status_id === 6
+                                            ? 'Disponível'
+                                            : 'Na oficina')
+                                    : 'Disponível'
+                            }}
+                            </span>
+                        </p>
+                        </td>
+                        <!-- <td>
+                          <p class="mb-0 ">{{ moment(equipment.created_at).format('DD-MM-YYYY H:mm') }}</p>
+                        </td> -->
+                      </tr>
+                 
+                     
+                    </tbody>
+                  </table>
+                </div>
                         </div>
                     </div>
 
