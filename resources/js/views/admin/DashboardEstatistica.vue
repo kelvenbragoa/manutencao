@@ -1,464 +1,208 @@
 <script setup>
-  import axios from "axios";
-import { onBeforeMount, reactive, ref, onMounted, watch, onUnmounted } from "vue";
-import { RouterView, RouterLink, useRouter, useRoute } from "vue-router";
+import { onMounted, ref } from "vue";
+import axios from "axios";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 
-import { debounce } from "lodash-es";
+const equipmentCount = ref(0);
+const fleetCount = ref(0);
+const userCount = ref(0);
+const availableMachinesCount = ref(0);
+const chartRef = ref(null);
 
-import moment from "moment";
-import { useToast } from "vue-toastification";
+const aguardaAprovacaoCount = ref(0);
+const aguardandoEntradaCount = ref(0);
+const naOficinaCount = ref(0);
+const manutencaoCount = ref(0);
+const manutencaoDoneCount = ref(0);
+const outOficinaCount = ref(0);
 
-let interval;
+const chartLabels = ref([]);
+const chartData = ref([]);
+let chartInstance = null;
 
-const router = useRouter();
-const toast = useToast();
-const loading1 = ref(null);
-const isLoadingDiv = ref(true);
-const loadingButtonDelete = ref(false);
-let dataIdBeingDeleted = ref(null);
-const searchQuery = ref("");
-const retriviedData = ref(null);
-const currentPage = ref(1);
-const rowsPerPage = ref(15);
-const totalRecords = ref(0);
-const displayConfirmation = ref(false);
-const menu = ref();
+async function fetchDashboardData() {
+    try {
+        const response = await axios.get("/api/statistics");
+        const data = response.data;
+        equipmentCount.value = data.equipments;
+        fleetCount.value = data.fleets;
+        userCount.value = data.user;
 
-const authorizedin = ref([]);
-const fleet = ref([]);
-const oficina = ref([]);
-const manutencao = ref([]);
-const aguardaaprovacao = ref([]);
+        aguardaAprovacaoCount.value = data.aguardaAprovacaoCount;
+        aguardandoEntradaCount.value = data.aguardandoEntradaCount;
+        naOficinaCount.value = data.naOficinaCount;
+        manutencaoCount.value = data.manutencaoCount;
+        manutencaoDoneCount.value = data.manutencaoDoneCount;
+        outOficinaCount.value = data.outOficinaCount;
 
-const nextstage = (id) => {
-
-    axios
-        .post(`/api/nextstage/${id}`)
-        .then(() => {
-            getData();
-            toast.success("Sucesso");
-        })
-        .catch((error) => {
-            toast.error(`${error}`);
-        })
-        .finally(() => {
-        });
-};
-
-const toggle = (event, id) => {
-    dataIdBeingDeleted.value = id;
-    menu.value.toggle(event);
-};
-
-function goBackUsingBack() {
-    if (router) {
-        router.back();
+        availableMachinesCount.value = data.availableMachinesCount;
+        // Consome barChartData do backend
+        if (Array.isArray(data.barChartData)) {
+            chartLabels.value = data.barChartData.map((item) => item.date);
+            chartData.value = data.barChartData.map((item) => item.total);
+        } else {
+            chartLabels.value = [];
+            chartData.value = [];
+        }
+        updateChart();
+    } catch (error) {
+        // fallback: valores zerados
+        equipmentCount.value = 0;
+        fleetCount.value = 0;
+        userCount.value = 0;
+        availableMachinesCount.value = 0;
+        workshopData.value = Array(30).fill(0);
+        updateChart();
     }
 }
 
-const closeConfirmation = () => {
-    displayConfirmation.value = false;
-};
-const confirmDeletion = (id) => {
-    displayConfirmation.value = true;
-    dataIdBeingDeleted.value = id;
-};
-
-const getData = async (page = 1) => {
-    axios
-        .get(`/api/dashboarddisponibilidade`, {
-            params: {
-                query: searchQuery.value,
+function updateChart() {
+    if (!chartRef.value) return;
+    const ctx = chartRef.value.getContext("2d");
+    if (chartInstance) {
+        chartInstance.data.labels = chartLabels.value;
+        chartInstance.data.datasets[0].data = chartData.value;
+        chartInstance.update();
+        return;
+    }
+    chartInstance = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: chartLabels.value,
+            datasets: [
+                {
+                    label: "Equipamentos na Oficina",
+                    data: chartData.value,
+                    backgroundColor: "#36a2eb",
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true },
+                title: {
+                    display: true,
+                    text: "Equipamentos na Oficina por Dia",
+                },
             },
-        })
-        .then((response) => {
-            fleet.value = response.data.fleet;
-            
-            isLoadingDiv.value = false;
-            console.log(retriviedData.value)
-        })
-        .catch((error) => {
-            isLoadingDiv.value = false;
-            toast.error(`${error}`);
-            goBackUsingBack();
-        });
-};
-
-const deleteData = () => {
-    loadingButtonDelete.value = true;
-
-    axios
-        .delete(`/api/user/${dataIdBeingDeleted.value}`)
-        .then(() => {
-            retriviedData.value.data = retriviedData.value.data.filter(
-                (data) => data.id !== dataIdBeingDeleted.value
-            );
-            closeConfirmation();
-            toast.success("Sucesso");
-        })
-        .catch((error) => {
-            toast.error(`${error}`);
-            loadingButtonDelete.value = false;
-        })
-        .finally(() => {
-            loadingButtonDelete.value = false;
-        });
-};
-
-const onPageChange = (event) => {
-    currentPage.value = event.page + 1;
-    rowsPerPage.value = event.rows;
-    getData(currentPage.value);
-};
-
-const debouncedSearch = debounce(() => {
-    getData(currentPage.value);
-}, 300);
-
-watch(searchQuery, debouncedSearch);
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Quantidade",
+                    },
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: "Data",
+                    },
+                },
+            },
+        },
+    });
+}
 
 onMounted(() => {
-    getData();
-    interval = setInterval(() => {
-    getData();
-  }, 10000); 
-});
-
-onUnmounted(() => {
-  clearInterval(interval); // Para o intervalo ao destruir o componente
+    fetchDashboardData();
 });
 </script>
 
-
-
 <template>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
+    <div class="container py-4">
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Equipamentos</h5>
+                        <p class="display-4">{{ equipmentCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Frotas</h5>
+                        <p class="display-4">{{ fleetCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuários</h5>
+                        <p class="display-4">{{ userCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Máquinas Disponíveis</h5>
+                        <p class="display-4">-{{ availableMachinesCount }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Aguarda Aprovação</h5>
+                        <p class="display-4">{{ aguardaAprovacaoCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Aguardando Entrada</h5>
+                        <p class="display-4">{{ aguardandoEntradaCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Na Oficina</h5>
+                        <p class="display-4">{{ naOficinaCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Em manutenção</h5>
+                        <p class="display-4">{{ manutencaoCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Manutenção Concluída</h5>
+                        <p class="display-4">{{ manutencaoDoneCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Fora da Oficina</h5>
+                        <p class="display-4">{{ outOficinaCount }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
-                <div class="row align-items-center mb-2">
-                    <div class="col">
-                        <h2 class="h5 page-title">Cornelder</h2>
-                    </div>
-                    <div class="col-auto">
-                        <form class="form-inline">
-                            <div class="form-group d-none d-lg-inline">
-                                <label for="reportrange" class="sr-only"
-                                    >Date Ranges</label
-                                >
-                                <div
-                                    id="reportrange"
-                                    class="px-2 py-2 text-muted"
-                                >
-                                    <span class="small"></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-sm">
-                                    <span
-                                        class="fe fe-refresh-ccw fe-16 text-muted"
-                                    ></span>
-                                </button>
-                                <button type="button" class="btn btn-sm mr-2">
-                                    <span
-                                        class="fe fe-filter fe-16 text-muted"
-                                    ></span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Coluna Entrada -->
-                    <div class="col-md-2">
-                        <h4 class="mb-3">
-                            Aguarda Aprovação
-                        </h4>
-                        <div class="card shadow mb-3" v-for="item in aguardaaprovacao">
-                            <div class="card-body">
-                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
-                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h4 class="mb-3">
-                            Aguardando Entrada
-                        </h4>
-                        <div class="card shadow mb-3" v-for="item in authorizedin">
-                            <div class="card-body">
-                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
-                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h4 class="mb-3">
-                            Na Oficina
-                        </h4>
-                        <div class="card shadow mb-3" v-for="item in oficina">
-                            <div class="card-body">
-                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
-                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h4 class="mb-3">
-                            Em Manutenção
-                        </h4>
-                        <div class="card shadow mb-3" v-for="item in manutencao">
-                            <div class="card-body">
-                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
-                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Coluna Saída -->
-                    <div class="col-md-2">
-                        <h4 class="mb-3">
-                            Manutenção Concluída
-                        </h4>
-                        <div class="card shadow mb-3" v-for="item in fleet">
-                            <div class="card-body">
-                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
-                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- .col-12 -->
-        </div>
-        <!-- .row -->
-    </div>
-    <!-- .container-fluid -->
-    <div
-        class="modal fade modal-notif modal-slide"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="defaultModalLabel"
-        aria-hidden="true"
-    >
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="defaultModalLabel">
-                        Notifications
-                    </h5>
-                    <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                    >
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group list-group-flush my-n3">
-                        <div class="list-group-item bg-transparent">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <span class="fe fe-box fe-24"></span>
-                                </div>
-                                <div class="col">
-                                    <small
-                                        ><strong
-                                            >Package has uploaded
-                                            successfull</strong
-                                        ></small
-                                    >
-                                    <div class="my-0 text-muted small">
-                                        Package is zipped and uploaded
-                                    </div>
-                                    <small
-                                        class="badge badge-pill badge-light text-muted"
-                                        >1m ago</small
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item bg-transparent">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <span class="fe fe-download fe-24"></span>
-                                </div>
-                                <div class="col">
-                                    <small
-                                        ><strong
-                                            >Widgets are updated
-                                            successfull</strong
-                                        ></small
-                                    >
-                                    <div class="my-0 text-muted small">
-                                        Just create new layout Index, form,
-                                        table
-                                    </div>
-                                    <small
-                                        class="badge badge-pill badge-light text-muted"
-                                        >2m ago</small
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item bg-transparent">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <span class="fe fe-inbox fe-24"></span>
-                                </div>
-                                <div class="col">
-                                    <small
-                                        ><strong
-                                            >Notifications have been
-                                            sent</strong
-                                        ></small
-                                    >
-                                    <div class="my-0 text-muted small">
-                                        Fusce dapibus, tellus ac cursus commodo
-                                    </div>
-                                    <small
-                                        class="badge badge-pill badge-light text-muted"
-                                        >30m ago</small
-                                    >
-                                </div>
-                            </div>
-                            <!-- / .row -->
-                        </div>
-                        <div class="list-group-item bg-transparent">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <span class="fe fe-link fe-24"></span>
-                                </div>
-                                <div class="col">
-                                    <small
-                                        ><strong
-                                            >Link was attached to menu</strong
-                                        ></small
-                                    >
-                                    <div class="my-0 text-muted small">
-                                        New layout has been attached to the menu
-                                    </div>
-                                    <small
-                                        class="badge badge-pill badge-light text-muted"
-                                        >1h ago</small
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <!-- / .row -->
-                    </div>
-                    <!-- / .list-group -->
-                </div>
-                <div class="modal-footer">
-                    <button
-                        type="button"
-                        class="btn btn-secondary btn-block"
-                        data-dismiss="modal"
-                    >
-                        Clear All
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-        class="modal fade modal-shortcut modal-slide"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="defaultModalLabel"
-        aria-hidden="true"
-    >
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="defaultModalLabel">
-                        Shortcuts
-                    </h5>
-                    <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                    >
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body px-5">
-                    <div class="row align-items-center">
-                        <div class="col-6 text-center">
-                            <div
-                                class="squircle bg-success justify-content-center"
-                            >
-                                <i
-                                    class="fe fe-cpu fe-32 align-self-center text-white"
-                                ></i>
-                            </div>
-                            <p>Control area</p>
-                        </div>
-                        <div class="col-6 text-center">
-                            <div
-                                class="squircle bg-primary justify-content-center"
-                            >
-                                <i
-                                    class="fe fe-activity fe-32 align-self-center text-white"
-                                ></i>
-                            </div>
-                            <p>Activity</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-6 text-center">
-                            <div
-                                class="squircle bg-primary justify-content-center"
-                            >
-                                <i
-                                    class="fe fe-droplet fe-32 align-self-center text-white"
-                                ></i>
-                            </div>
-                            <p>Droplet</p>
-                        </div>
-                        <div class="col-6 text-center">
-                            <div
-                                class="squircle bg-primary justify-content-center"
-                            >
-                                <i
-                                    class="fe fe-upload-cloud fe-32 align-self-center text-white"
-                                ></i>
-                            </div>
-                            <p>Upload</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-6 text-center">
-                            <div
-                                class="squircle bg-primary justify-content-center"
-                            >
-                                <i
-                                    class="fe fe-users fe-32 align-self-center text-white"
-                                ></i>
-                            </div>
-                            <p>Users</p>
-                        </div>
-                        <div class="col-6 text-center">
-                            <div
-                                class="squircle bg-primary justify-content-center"
-                            >
-                                <i
-                                    class="fe fe-settings fe-32 align-self-center text-white"
-                                ></i>
-                            </div>
-                            <p>Settings</p>
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                        <canvas ref="chartRef" height="100"></canvas>
                     </div>
                 </div>
             </div>

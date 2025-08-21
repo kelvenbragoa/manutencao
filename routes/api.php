@@ -20,7 +20,6 @@ Route::middleware([Sanctum::class])->group(function () {
 
     Route::post('logout',[AuthController::class,'logout']);
 
-    
 
     Route::resource('user', UserController::class);
     Route::resource('equipments', EquipmentController::class);
@@ -33,6 +32,7 @@ Route::middleware([Sanctum::class])->group(function () {
     Route::get('dashboard',[DashboardController::class,'dashboard']);
     Route::get('dashboarddisponibilidade',[DashboardController::class,'dashboarddisponibilidade']);
     Route::get('movements',[EntryController::class,'movements']);
+    Route::get('statistics',[DashboardController::class,'statistics']);
 
 
 
