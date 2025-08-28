@@ -87,6 +87,21 @@ const deleteData = () => {
         });
 };
 
+const nextstage = (id) => {
+
+    axios
+        .post(`/api/nextstage/${id}`)
+        .then(() => {
+            getData();
+            toast.success("Sucesso");
+        })
+        .catch((error) => {
+            toast.error(`${error}`);
+        })
+        .finally(() => {
+        });
+};
+
 const onPageChange = (event) => {
     currentPage.value = event.page + 1;
     rowsPerPage.value = event.rows;
@@ -161,6 +176,9 @@ onUnmounted(() => {
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
                                 <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                        class="fe fe-arrow-right fe-16"
+                                    ></span></button>
                             </div>
                         </div>
                     </div>
@@ -175,6 +193,9 @@ onUnmounted(() => {
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
                                 <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                        class="fe fe-arrow-right fe-16"
+                                    ></span></button>
                             </div>
                         </div>
                     </div>

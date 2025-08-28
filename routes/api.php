@@ -7,6 +7,7 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\EquipmentFleetController;
 use App\Http\Controllers\ExitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VehicleController;
 use App\Http\Middleware\Sanctum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::middleware([Sanctum::class])->group(function () {
     Route::resource('equipmentfleet', EquipmentFleetController::class);
     Route::resource('entrymovement', EntryController::class);
     Route::resource('exitmovement', ExitController::class);
+    Route::resource('vehicles', VehicleController::class);
 
     Route::post('nextstage/{id}',[EntryController::class,'nextstage']);
 

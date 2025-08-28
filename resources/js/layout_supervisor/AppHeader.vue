@@ -60,6 +60,8 @@ const logout = () => {
                   <router-link class="nav-link pl-lg-2" to="/supervisor/equipments"><span class="ml-1">Equipamento</span></router-link>
                   <router-link class="nav-link pl-lg-2" to="/supervisor/equipmentfleet"><span class="ml-1">Frotas</span></router-link>
                   <router-link class="nav-link pl-lg-2" to="/supervisor/user"><span class="ml-1">Usuários</span></router-link>
+                  <router-link class="nav-link pl-lg-2" to="/supervisor/vehicles"><span class="ml-1">Veículos</span></router-link>
+
                   
                 </div>
               </li>

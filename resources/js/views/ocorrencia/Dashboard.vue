@@ -27,8 +27,11 @@ const menu = ref();
 const authorizedin = ref([]);
 const authorizedout = ref([]);
 const oficina = ref([]);
-const manutencao = ref([]);
+const em_manutencao = ref([]);
 const aguardaaprovacao = ref([]);
+const inspecao = ref([]);
+const concluida = ref([]);
+
 
 const nextstage = (id) => {
 
@@ -75,8 +78,11 @@ const getData = async (page = 1) => {
             authorizedout.value = response.data.out;
             authorizedin.value = response.data.in;
             oficina.value = response.data.oficina;
-            manutencao.value = response.data.manutencao;
+            em_manutencao.value = response.data.em_manutencao;
             aguardaaprovacao.value = response.data.aguardaaprovacao;
+            inspecao.value = response.data.inspecao;
+            concluida.value = response.data.concluida;
+
             isLoadingDiv.value = false;
             console.log(retriviedData.value)
         })
@@ -171,7 +177,7 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <div class="row">
+                 <div class="row">
                     <!-- Coluna Entrada -->
                     <div class="col-md-2">
                         <h4 class="mb-3">
@@ -181,10 +187,10 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
-                                <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
-                                    ></span></button>
+                                    ></span></button> -->
                             </div>
                         </div>
                     </div>
@@ -197,10 +203,10 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
-                                <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
-                                    ></span></button>
+                                    ></span></button> -->
                             </div>
                         </div>
                     </div>
@@ -213,7 +219,10 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                        class="fe fe-arrow-right fe-16"
+                                    ></span></button> -->
                             </div>
                         </div>
                     </div>
@@ -222,28 +231,60 @@ onUnmounted(() => {
                         <h4 class="mb-3">
                             Em Manutenção
                         </h4>
-                        <div class="card shadow mb-3" v-for="item in manutencao">
+                        <div class="card shadow mb-3" v-for="item in em_manutencao">
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                        class="fe fe-arrow-right fe-16"
+                                    ></span></button> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4 class="mb-3">
+                            Em Inspeção
+                        </h4>
+                        <div class="card shadow mb-3" v-for="item in inspecao">
+                            <div class="card-body">
+                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
+                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                        class="fe fe-arrow-right fe-16"
+                                    ></span></button> -->
                             </div>
                         </div>
                     </div>
 
                     <!-- Coluna Saída -->
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <h4 class="mb-3">
-                            Manutenção Concluída
+                            Concluída
+                        </h4>
+                        <div class="card shadow mb-3" v-for="item in concluida">
+                            <div class="card-body">
+                                <strong>Matrícula:</strong> {{item.plate_number}} <br />
+                                <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                 <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
+                                        class="fe fe-arrow-right fe-16"
+                                    ></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <h4 class="mb-3">
+                            Saída
                         </h4>
                         <div class="card shadow mb-3" v-for="item in authorizedout">
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
-                                <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
-                                        class="fe fe-arrow-right fe-16"
-                                    ></span></button>
+                                <strong>Equipamento:</strong> {{item.equipment.name}} 
                             </div>
                         </div>
                     </div>

@@ -34,17 +34,31 @@ class DashboardController extends Controller
             ->orderBy('id','desc')
             ->get();
 
-        $manutencao = EquipmentMovement::query()
+        $em_manutencao = EquipmentMovement::query()
             ->with('equipment.fleet')
             ->with('status')
             ->where('equipment_movement_status_id',4)
             ->orderBy('id','desc')
             ->get();
 
-        $authorizedout = EquipmentMovement::query()
+        $inspecao = EquipmentMovement::query()
             ->with('equipment.fleet')
             ->with('status')
             ->where('equipment_movement_status_id',5)
+            ->orderBy('id','desc')
+            ->get();
+
+        $concluida = EquipmentMovement::query()
+            ->with('equipment.fleet')
+            ->with('status')
+            ->where('equipment_movement_status_id',6)
+            ->orderBy('id','desc')
+            ->get();
+
+        $authorizedout = EquipmentMovement::query()
+            ->with('equipment.fleet')
+            ->with('status')
+            ->where('equipment_movement_status_id',7)
             ->orderBy('id','desc')
             ->get();
 
@@ -53,7 +67,9 @@ class DashboardController extends Controller
             'out'=>$authorizedout,
             'aguardaaprovacao'=>$aguardaaprovacao,
             'oficina'=>$oficina,
-            'manutencao'=>$manutencao
+            'em_manutencao'=>$em_manutencao,
+            'inspecao'=>$inspecao,
+            'concluida'=>$concluida
         ]);
 
     }
@@ -120,7 +136,7 @@ class DashboardController extends Controller
             'naOficinaCount'=>$naOficinaCount,
             'manutencaoCount'=>$manutencaoCount,
             'manutencaoDoneCount'=>$manutencaoDoneCount,
-            'outOficinaCount'=>$outOficinaCount
+            'outOficinaCount'=>$outOficinaCount,
 
         ]);
     }

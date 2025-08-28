@@ -59,7 +59,7 @@ class EntryController extends Controller
         // ]);
 
         $exists = EquipmentMovement::where('equipment_id', $data['equipment_id'])
-            ->where('equipment_movement_status_id','!=', 6)
+            ->where('equipment_movement_status_id','!=', 8)
             ->exists();
 
         if ($exists) {
@@ -136,7 +136,7 @@ class EntryController extends Controller
         $currentStatus = $equipment->equipment_movement_status_id;
 
         // Calcula o próximo
-        $nextStatus = $currentStatus < 6 ? $currentStatus + 1 : 6; // não passa do último
+        $nextStatus = $currentStatus < 8 ? $currentStatus + 1 : 8; // não passa do último
 
         // Atualiza
         // Executa ações específicas antes de atualizar
@@ -152,19 +152,30 @@ class EntryController extends Controller
                 $equipment->in_maintenance_by_user_id = Auth::user()->id;
                 break;
 
-            case 4: // Manutenção Concluída
+            case 4: // Em Inspeção
                 $equipment->maintenance_done_at = now();
                 $equipment->maintenance_done_by_user_id = Auth::user()->id;
+                
                 break;
 
-            case 5: // Fora da Oficina
-                $equipment->exit_requested_at = now();
-                $equipment->exit_requested_by_user_id = Auth::user()->id;
+            case 5: // Manutenção Concluída
+                $equipment->inspection_at = now();
+                $equipment->inspection_done_by_user_id = Auth::user()->id;
                 break;
-            case 6: // Finalizado
+
+            case 6: // Fora da Oficina
+                $equipment->authorized_exit_at = now();
+                $equipment->authorized_exit_by_user_id = Auth::user()->id;
+                break;
+            case 7: // Finalizado
                 $equipment->exit_time = now();
                 $equipment->exit_by_user_id = Auth::user()->id;
                 break;
+            case 8: // Finalizado
+                $equipment->exit_time = now();
+                $equipment->exit_by_user_id = Auth::user()->id;
+                break;
+
         }
 
     // Atualiza status
@@ -185,14 +196,12 @@ class EntryController extends Controller
     public function movements(){
 
         $searchQuery = request('query');
-
             $equipments = EquipmentMovement::query()
             ->with('equipment.fleet')
             ->with('status')
             // ->whereIn('equipment_movement_status_id',[1,2,3])
             ->orderBy('id','desc')
             ->paginate(100);
-
             return response()->json($equipments);
     }
 }

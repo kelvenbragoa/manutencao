@@ -24,6 +24,42 @@ const router = createRouter({
                     component: () => import("@/views/ocorrencia/Dashboard.vue"),
                 },
                 {
+                    path: "/ocorrencia/vehicles",
+                    name: "ocorrencia.vehicles",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/ocorrencia/vehicles/IndexVehicles.vue"),
+                },
+                {
+                    path: "/ocorrencia/vehicles/create",
+                    name: "ocorrencia.vehicles.create",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/ocorrencia/vehicles/CreateVehicles.vue"),
+                },
+                {
+                    path: "/ocorrencia/vehicles/:id",
+                    name: "ocorrencia.vehicles.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/ocorrencia/vehicles/ShowVehicles.vue"),
+                },
+                {
+                    path: "/ocorrencia/vehicles/:id/edit",
+                    name: "ocorrencia.vehicles.edit",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/ocorrencia/vehicles/EditVehicles.vue"),
+                },
+                {
                     path: "/ocorrencia/equipments",
                     name: "ocorrencia.equipments",
                     meta: {
@@ -228,6 +264,15 @@ const router = createRouter({
                     path: "/seguranca/dashboard",
                     name: "seguranca.dashboard",
                     component: () => import("@/views/seguranca/Dashboard.vue"),
+                },
+                {
+                    path: "/seguranca/vehicles",
+                    name: "seguranca.vehicles",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/seguranca/vehicles/IndexVehicles.vue"),
                 },
                 {
                     path: "/seguranca/equipments",
@@ -474,6 +519,44 @@ const router = createRouter({
 
 
                 {
+                    path: "/area/vehicles",
+                    name: "area.vehicles",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/area/vehicles/IndexVehicles.vue"),
+                },
+                {
+                    path: "/area/vehicles/create",
+                    name: "area.vehicles.create",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/area/vehicles/CreateVehicles.vue"),
+                },
+                {
+                    path: "/area/vehicles/:id",
+                    name: "area.vehicles.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/area/vehicles/ShowVehicles.vue"),
+                },
+                {
+                    path: "/area/vehicles/:id/edit",
+                    name: "area.vehicles.edit",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/area/vehicles/EditVehicles.vue"),
+                },
+
+
+                {
                     path: "/area/equipmentfleet",
                     name: "area.equipmentfleet",
                     meta: {
@@ -636,10 +719,47 @@ const router = createRouter({
             path: "/supervisor",
             component: AppSupervisorLayout,
             children: [
+
                 {
                     path: "/supervisor/dashboard",
                     name: "supervisor.dashboard",
                     component: () => import("@/views/supervisor/Dashboard.vue"),
+                },
+                {
+                    path: "/supervisor/vehicles",
+                    name: "supervisor.vehicles",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/supervisor/vehicles/IndexVehicles.vue"),
+                },
+                {
+                    path: "/supervisor/vehicles/create",
+                    name: "supervisor.vehicles.create",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/supervisor/vehicles/CreateVehicles.vue"),
+                },
+                {
+                    path: "/supervisor/vehicles/:id",
+                    name: "supervisor.vehicles.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/supervisor/vehicles/ShowVehicles.vue"),
+                },
+                {
+                    path: "/supervisor/vehicles/:id/edit",
+                    name: "supervisor.vehicles.edit",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/supervisor/vehicles/EditVehicles.vue"),
                 },
                 {
                     path: "/supervisor/equipments",
@@ -857,6 +977,42 @@ const router = createRouter({
                     path: "/admin/dashboard/available",
                     name: "admin.dashboard.available",
                     component: () => import("@/views/admin/DashboardDisponibilidade.vue"),
+                },
+                {
+                    path: "/admin/vehicles",
+                    name: "admin.vehicles",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/admin/vehicles/IndexVehicles.vue"),
+                },
+                {
+                    path: "/admin/vehicles/create",
+                    name: "admin.vehicles.create",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/admin/vehicles/CreateVehicles.vue"),
+                },
+                {
+                    path: "/admin/vehicles/:id",
+                    name: "admin.vehicles.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/admin/vehicles/ShowVehicles.vue"),
+                },
+                {
+                    path: "/admin/vehicles/:id/edit",
+                    name: "admin.vehicles.edit",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/admin/vehicles/EditVehicles.vue"),
                 },
 
                 {

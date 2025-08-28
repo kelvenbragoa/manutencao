@@ -62,6 +62,8 @@ const logout = () => {
                   <router-link class="nav-link pl-lg-2" to="/admin/equipments"><span class="ml-1">Equipamento</span></router-link>
                   <router-link class="nav-link pl-lg-2" to="/admin/equipmentfleet"><span class="ml-1">Frotas</span></router-link>
                   <router-link class="nav-link pl-lg-2" to="/admin/user"><span class="ml-1">Usuários</span></router-link>
+                  <router-link class="nav-link pl-lg-2" to="/admin/vehicles"><span class="ml-1">Veículos</span></router-link>
+
                   
                 </div>
               </li>

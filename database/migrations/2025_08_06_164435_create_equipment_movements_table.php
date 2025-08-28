@@ -27,11 +27,17 @@ return new class extends Migration
             $table->timestamp('in_maintenance_at')->nullable();
             $table->foreignId('in_maintenance_by_user_id')->nullable()->constrained('users');
 
+            $table->timestamp('inspection_at')->nullable();
+            $table->foreignId('inspection_done_by_user_id')->nullable()->constrained('users');
+
             $table->timestamp('maintenance_done_at')->nullable();
             $table->foreignId('maintenance_done_by_user_id')->nullable()->constrained('users');
 
             $table->timestamp('exit_requested_at')->nullable();
             $table->foreignId('exit_requested_by_user_id')->nullable()->constrained('users');
+
+            $table->timestamp('authorized_exit_at')->nullable();
+            $table->foreignId('authorized_exit_by_user_id')->nullable()->constrained('users');
 
             $table->timestamp('exit_time')->nullable();
             $table->foreignId('exit_by_user_id')->nullable()->constrained('users');
@@ -45,6 +51,7 @@ return new class extends Migration
             $table->foreignId('deleted_by_user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->softDeletes();
             $table->timestamps();
+            
         });
     }
 

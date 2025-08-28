@@ -57,9 +57,9 @@ const logout = () => {
                   <span class="ml-lg-2">Assets</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="ui-elementsDropdown">
-                  <router-link class="nav-link pl-lg-2" to="/seguranca/equipments"><span class="ml-1">Equipamento</span></router-link>
-                  <router-link class="nav-link pl-lg-2" to="/seguranca/equipmentfleet"><span class="ml-1">Frotas</span></router-link>
-                  <router-link class="nav-link pl-lg-2" to="/seguranca/user"><span class="ml-1">Usuários</span></router-link>
+                  <router-link class="nav-link pl-lg-2" to="/seguranca/vehicles"><span class="ml-1">Viaturas</span></router-link>
+                  <!-- <router-link class="nav-link pl-lg-2" to="/seguranca/equipmentfleet"><span class="ml-1">Frotas</span></router-link>
+                  <router-link class="nav-link pl-lg-2" to="/seguranca/user"><span class="ml-1">Usuários</span></router-link> -->
                   
                 </div>
               </li>
