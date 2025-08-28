@@ -117,7 +117,9 @@ const debouncedSearch = debounce(() => {
 
 function getSeverity(status) {
     const statusMap = {
-        5: "success", // Aguardando Entrada
+        8: "success", // Na Oficina
+        7: "success", // Em Manutenção
+        5: "warning", // Aguardando Entrada
         6: "success", // Na Oficina
         1: "success", // Na Oficina
         2: "warning", // Em Movimento
@@ -229,7 +231,7 @@ onUnmounted(() => {
                                                 >
                             {{
                                 equipment.lastmovement
-                                    ? (equipment.lastmovement.equipment_movement_status_id === 1 || equipment.lastmovement.equipment_movement_status_id === 5 || equipment.lastmovement.equipment_movement_status_id === 6
+                                    ? (equipment.lastmovement.equipment_movement_status_id === 1 || equipment.lastmovement.equipment_movement_status_id === 6 || equipment.lastmovement.equipment_movement_status_id === 7 || equipment.lastmovement.equipment_movement_status_id === 8
                                             ? 'Disponível'
                                             : 'Na oficina')
                                     : 'Disponível'

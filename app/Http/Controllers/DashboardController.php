@@ -122,8 +122,10 @@ class DashboardController extends Controller
         $aguardandoEntradaCount = EquipmentMovement::where('equipment_movement_status_id', 2)->count();
         $naOficinaCount = EquipmentMovement::where('equipment_movement_status_id', 3)->count();
         $manutencaoCount = EquipmentMovement::where('equipment_movement_status_id', 4)->count();
-        $manutencaoDoneCount = EquipmentMovement::where('equipment_movement_status_id', 5)->count();
-        $outOficinaCount = EquipmentMovement::where('equipment_movement_status_id', 6)->count();
+        $inspecaoCount = EquipmentMovement::where('equipment_movement_status_id', 5)->count();
+        $manutencaoDoneCount = EquipmentMovement::where('equipment_movement_status_id', 6)->count();
+        $saidaAutorizadaCount = EquipmentMovement::where('equipment_movement_status_id', 7)->count();
+        $outOficinaCount = EquipmentMovement::where('equipment_movement_status_id', 8)->count();
 
         return response()->json([
             'fleets'=>$fleets,
@@ -135,7 +137,9 @@ class DashboardController extends Controller
             'aguardandoEntradaCount'=>$aguardandoEntradaCount,
             'naOficinaCount'=>$naOficinaCount,
             'manutencaoCount'=>$manutencaoCount,
+            'inspecaoCount'=>$inspecaoCount,
             'manutencaoDoneCount'=>$manutencaoDoneCount,
+            'saidaAutorizadaCount'=>$saidaAutorizadaCount,
             'outOficinaCount'=>$outOficinaCount,
 
         ]);

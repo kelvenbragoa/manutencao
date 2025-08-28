@@ -16,6 +16,8 @@ const naOficinaCount = ref(0);
 const manutencaoCount = ref(0);
 const manutencaoDoneCount = ref(0);
 const outOficinaCount = ref(0);
+const inspecaoCount = ref(0);
+const saidaAutorizadaCount = ref(0);
 
 const chartLabels = ref([]);
 const chartData = ref([]);
@@ -35,6 +37,8 @@ async function fetchDashboardData() {
         manutencaoCount.value = data.manutencaoCount;
         manutencaoDoneCount.value = data.manutencaoDoneCount;
         outOficinaCount.value = data.outOficinaCount;
+        inspecaoCount.value = data.inspecaoCount;
+        saidaAutorizadaCount.value = data.saidaAutorizadaCount;
 
         availableMachinesCount.value = data.availableMachinesCount;
         // Consome barChartData do backend
@@ -184,8 +188,24 @@ onMounted(() => {
             <div class="col-md-3">
                 <div class="card text-center">
                     <div class="card-body">
+                        <h5 class="card-title">Em Inspeção</h5>
+                        <p class="display-4">{{ inspecaoCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
                         <h5 class="card-title">Manutenção Concluída</h5>
                         <p class="display-4">{{ manutencaoDoneCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Saída Autorizada</h5>
+                        <p class="display-4">{{ saidaAutorizadaCount }}</p>
                     </div>
                 </div>
             </div>
