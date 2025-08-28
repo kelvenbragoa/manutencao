@@ -63,7 +63,7 @@ const logout = () => {
                   
                 </div>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <router-link class="nav-link" to="/seguranca/entrymovement">
                   <span class="ml-lg-2">Entrada</span>
                 </router-link>
@@ -77,7 +77,7 @@ const logout = () => {
                 <router-link class="nav-link" to="/seguranca/movements">
                   <span class="ml-lg-2">Relatório</span>
                 </router-link>
-              </li>
+              </li> -->
 
             </ul>
           </div>
