@@ -124,6 +124,26 @@ const debouncedSearch = debounce(() => {
     getData(currentPage.value);
 }, 300);
 
+// Função para calcular tempo decorrido desde o estado atual
+const getTimeAgo = (timestamp) => {
+    const now = moment();
+    const created = moment(timestamp);
+    
+    const duration = moment.duration(now.diff(created));
+    
+    const days = Math.floor(duration.asDays());
+    const hours = Math.floor(duration.asHours() % 24);
+    const minutes = Math.floor(duration.asMinutes() % 60);
+    
+    if (days > 0) {
+        return `${days}d ${hours}h ${minutes}m`;
+    } else if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+    } else {
+        return `${minutes}m`;
+    }
+};
+
 watch(searchQuery, debouncedSearch);
 
 onMounted(() => {
@@ -187,7 +207,13 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br />
+                                 <strong>Entrada:</strong> {{
+                                    moment(item.entry_time).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-warning">{{getTimeAgo(item.entry_time)}}</span>
+                                <br><br>
                                 <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button> -->
@@ -203,7 +229,13 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <strong>Entrada:</strong> {{
+                                    moment(item.approved_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-info">{{getTimeAgo(item.approved_at)}}</span>
+                                <br><br>
                                 <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button> -->
@@ -220,6 +252,12 @@ onUnmounted(() => {
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
                                 <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                 <strong>Entrada:</strong> {{
+                                    moment(item.in_maintenance_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-primary">{{getTimeAgo(item.in_maintenance_at)}}</span>
+                                <br><br>
                                 <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button> -->
@@ -236,6 +274,12 @@ onUnmounted(() => {
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
                                 <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <strong>Entrada:</strong> {{
+                                    moment(item.maintenance_done_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-danger">{{getTimeAgo(item.maintenance_done_at)}}</span>
+                                <br><br>
                                 <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button> -->
@@ -252,6 +296,12 @@ onUnmounted(() => {
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
                                 <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                 <strong>Entrada:</strong> {{
+                                    moment(item.inspection_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-secondary">{{getTimeAgo(item.inspection_at)}}</span>
+                                <br><br>
                                 <!-- <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button> -->
@@ -268,7 +318,12 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                 <strong>Conclusão:</strong> {{
+                                    moment(item.authorized_exit_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-success">{{getTimeAgo(item.authorized_exit_at)}}</span> <br>
                                  <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button>
@@ -284,7 +339,12 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} 
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <strong>Saída:</strong> {{
+                                    moment(item.exit_requested_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-dark">{{getTimeAgo(item.exit_requested_at)}}</span>
                             </div>
                         </div>
                     </div>

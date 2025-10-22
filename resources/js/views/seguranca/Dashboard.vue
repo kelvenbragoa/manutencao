@@ -87,6 +87,26 @@ const deleteData = () => {
         });
 };
 
+// Função para calcular tempo decorrido desde o estado atual
+const getTimeAgo = (timestamp) => {
+    const now = moment();
+    const created = moment(timestamp);
+    
+    const duration = moment.duration(now.diff(created));
+    
+    const days = Math.floor(duration.asDays());
+    const hours = Math.floor(duration.asHours() % 24);
+    const minutes = Math.floor(duration.asMinutes() % 60);
+    
+    if (days > 0) {
+        return `${days}d ${hours}h ${minutes}m`;
+    } else if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+    } else {
+        return `${minutes}m`;
+    }
+};
+
 const nextstage = (id) => {
 
     axios
@@ -175,7 +195,12 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br />
+                                <strong>Saída:</strong> {{
+                                    moment(item.approved_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-dark">{{getTimeAgo(item.approved_at)}}</span> <br>
                                 <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button>
@@ -192,7 +217,12 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}}
+                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                <strong>Saída:</strong> {{
+                                    moment(item.exit_requested_at).format("DD-MM-YYYY H:mm")
+                                }}<br>
+                                <strong>Tempo no estado:</strong> 
+                                <span class="badge badge-dark">{{getTimeAgo(item.exit_requested_at)}}</span> <br>
                                 <button class="btn btn-sm btn-primary" @click="nextstage(item.id)"><span
                                         class="fe fe-arrow-right fe-16"
                                     ></span></button>

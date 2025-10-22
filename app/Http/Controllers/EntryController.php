@@ -168,8 +168,8 @@ class EntryController extends Controller
                 $equipment->authorized_exit_by_user_id = Auth::user()->id;
                 break;
             case 7: // Finalizado
-                $equipment->exit_time = now();
-                $equipment->exit_by_user_id = Auth::user()->id;
+                $equipment->exit_requested_at = now();
+                $equipment->exit_requested_by_user_id = Auth::user()->id;
                 break;
             case 8: // Finalizado
                 $equipment->exit_time = now();
