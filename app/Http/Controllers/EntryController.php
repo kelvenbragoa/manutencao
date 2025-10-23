@@ -84,11 +84,14 @@ class EntryController extends Controller
     public function show(string $id)
     {
         //
-        $user = EquipmentMovement::
-        with('role')
-        ->find($id);
+        $movement = EquipmentMovement::with(['equipment.fleet', 'status'])
+            ->find($id);
 
-        return response()->json($user);
+        if (!$movement) {
+            return response()->json(['message' => 'Movimento não encontrado'], 404);
+        }
+
+        return response()->json($movement);
     }
 
     /**

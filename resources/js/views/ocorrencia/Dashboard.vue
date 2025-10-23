@@ -229,7 +229,8 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                                                <strong>Equipamento:</strong> <router-link :to="{ name: 'ocorrencia.movements.show', params: { id: item.id } }">{{item.equipment.name}} <i class="fe fe-eye"></i></router-link> <br />
+
                                 <strong>Entrada:</strong> {{
                                     moment(item.approved_at).format("DD-MM-YYYY H:mm")
                                 }}<br>
@@ -251,7 +252,8 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                                                <strong>Equipamento:</strong> <router-link :to="{ name: 'ocorrencia.movements.show', params: { id: item.id } }">{{item.equipment.name}} <i class="fe fe-eye"></i></router-link> <br />
+
                                  <strong>Entrada:</strong> {{
                                     moment(item.in_maintenance_at).format("DD-MM-YYYY H:mm")
                                 }}<br>
@@ -273,7 +275,8 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                                                <strong>Equipamento:</strong> <router-link :to="{ name: 'ocorrencia.movements.show', params: { id: item.id } }">{{item.equipment.name}} <i class="fe fe-eye"></i></router-link> <br />
+
                                 <strong>Entrada:</strong> {{
                                     moment(item.maintenance_done_at).format("DD-MM-YYYY H:mm")
                                 }}<br>
@@ -295,7 +298,8 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                                                <strong>Equipamento:</strong> <router-link :to="{ name: 'ocorrencia.movements.show', params: { id: item.id } }">{{item.equipment.name}} <i class="fe fe-eye"></i></router-link> <br />
+
                                  <strong>Entrada:</strong> {{
                                     moment(item.inspection_at).format("DD-MM-YYYY H:mm")
                                 }}<br>
@@ -318,7 +322,8 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                                                <strong>Equipamento:</strong> <router-link :to="{ name: 'ocorrencia.movements.show', params: { id: item.id } }">{{item.equipment.name}} <i class="fe fe-eye"></i></router-link> <br />
+
                                  <strong>Conclusão:</strong> {{
                                     moment(item.authorized_exit_at).format("DD-MM-YYYY H:mm")
                                 }}<br>
@@ -339,7 +344,8 @@ onUnmounted(() => {
                             <div class="card-body">
                                 <strong>Matrícula:</strong> {{item.plate_number}} <br />
                                 <strong>Frota:</strong> {{item.equipment.fleet.name}} <br />
-                                <strong>Equipamento:</strong> {{item.equipment.name}} <br>
+                                                                <strong>Equipamento:</strong> <router-link :to="{ name: 'ocorrencia.movements.show', params: { id: item.id } }">{{item.equipment.name}} <i class="fe fe-eye"></i></router-link> <br />
+
                                 <strong>Saída:</strong> {{
                                     moment(item.exit_requested_at).format("DD-MM-YYYY H:mm")
                                 }}<br>

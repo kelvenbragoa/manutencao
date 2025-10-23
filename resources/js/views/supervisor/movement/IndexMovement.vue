@@ -241,11 +241,12 @@ onMounted(() => {
                                                     class="dropdown-item"
                                                     @click="nextstage(item.id)"
                                                     >Próximo Estágio</button> -->
-                                                <a
+                                                <router-link
                                                     class="dropdown-item"
-                                                    href="#"
-                                                    >Verificar</a
+                                                    :to="{ name: 'supervisor.movements.show', params: { id: item.id } }"
+                                                    >Verificar</router-link
                                                 >
+                                                
                                                 
                                             </div>
                                         </td>

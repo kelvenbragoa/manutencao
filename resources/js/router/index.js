@@ -181,6 +181,15 @@ const router = createRouter({
                         import("@/views/ocorrencia/movement/IndexMovement.vue"),
                 },
                 {
+                    path: "/ocorrencia/movements/:id",
+                    name: "ocorrencia.movements.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/ocorrencia/movement/ShowMovement.vue"),
+                },
+                {
                     path: "/ocorrencia/entrymovement",
                     name: "ocorrencia.entrymovement",
                     meta: {
@@ -394,6 +403,15 @@ const router = createRouter({
                     },
                     component: () =>
                         import("@/views/seguranca/movement/IndexMovement.vue"),
+                },
+                {
+                    path: "/seguranca/movements/:id",
+                    name: "seguranca.movements.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/seguranca/movement/ShowMovement.vue"),
                 },
                 {
                     path: "/seguranca/entrymovement",
@@ -640,6 +658,15 @@ const router = createRouter({
                         import("@/views/area/movement/IndexMovement.vue"),
                 },
                 {
+                    path: "/area/movements/:id",
+                    name: "area.movements.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/area/movement/ShowMovement.vue"),
+                },
+                {
                     path: "/area/entrymovement",
                     name: "area.entrymovement",
                     meta: {
@@ -881,6 +908,15 @@ const router = createRouter({
                     },
                     component: () =>
                         import("@/views/supervisor/movement/IndexMovement.vue"),
+                },
+                {
+                    path: "/supervisor/movements/:id",
+                    name: "supervisor.movements.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/supervisor/movement/ShowMovement.vue"),
                 },
                 {
                     path: "/supervisor/entrymovement",
@@ -1135,6 +1171,15 @@ const router = createRouter({
                     },
                     component: () =>
                         import("@/views/admin/movement/IndexMovement.vue"),
+                },
+                {
+                    path: "/admin/movements/:id",
+                    name: "admin.movements.show",
+                    meta: {
+                        requiresAuth: true,
+                    },
+                    component: () =>
+                        import("@/views/admin/movement/ShowMovement.vue"),
                 },
                 {
                     path: "/admin/entrymovement",
